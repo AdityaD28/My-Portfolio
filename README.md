@@ -1,4 +1,4 @@
-# 🚀 Aditya Dasappanavar - Portfolio Website
+# Aditya Dasappanavar - Portfolio Website
 
 [![React](https://img.shields.io/badge/React-19.1.0-61dafb?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-4.9.5-3178c6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
@@ -7,22 +7,22 @@
 
 A modern, interactive portfolio website built with React, TypeScript, and cutting-edge web technologies. Features an AI-powered assistant, stunning animations, and a responsive design that showcases my projects and skills in an engaging way.
 
-## ✨ Features
+## Features
 
-### 🎨 **Modern Design & Animations**
+### **Modern Design & Animations**
 - **Glassmorphism UI** with sophisticated blur effects and transparency
 - **Framer Motion** animations for smooth page transitions and micro-interactions
 - **GSAP** powered particle background and advanced animations
 - **Responsive design** that works flawlessly across all devices
 - **Dark theme** with carefully crafted color schemes and gradients
 
-### 🤖 **AI-Powered Assistant**
+### **AI-Powered Assistant**
 - **Interactive AI Chatbot** to answer questions about projects, skills, and experience
 - **Smart conversation flow** with contextual responses
 - **Real-time assistance** for visitors exploring the portfolio
 - **Professional knowledge base** covering technical expertise and career journey
 
-### 🎯 **Interactive Components**
+### **Interactive Components**
 
 #### **Hero Section**
 - Dynamic profile image with rotating gradient border
@@ -70,14 +70,14 @@ A modern, interactive portfolio website built with React, TypeScript, and cuttin
 - **Social media links** and professional profiles
 - **Contact information** with multiple communication channels
 
-### 🎨 **Technical Highlights**
+### **Technical Highlights**
 - **Professional Technology Logos** for authentic skill representation
 - **Advanced CSS Animations** with keyframes and transitions
 - **Optimized Performance** with React best practices
 - **TypeScript Integration** for type safety and better development experience
 - **Component-based Architecture** for maintainability and reusability
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 src/
@@ -114,7 +114,7 @@ public/
 └── index.html                    # Main HTML template
 ```
 
-## � Getting Started
+## Getting Started
 
 ### Prerequisites
 - **Node.js** (v16 or higher)
@@ -163,7 +163,7 @@ yarn build
 
 The build artifacts will be stored in the `build/` directory.
 
-## 🛠️ Technologies & Libraries
+## Technologies & Libraries
 
 ### **Core Technologies**
 - **React 19.1.0** - Modern React with latest features
@@ -184,7 +184,7 @@ The build artifacts will be stored in the `build/` directory.
 - **Testing Library** - Comprehensive testing utilities
 - **Web Vitals 2.1.4** - Essential metrics for user experience
 
-## 🎨 Key Features Deep Dive
+## Key Features Deep Dive
 
 ### **Skills Constellation**
 - **Professional Logo Integration**: Real technology logos from official sources
@@ -212,7 +212,7 @@ The build artifacts will be stored in the `build/` directory.
 - **Category Organization**: Grouped by technology domain
 - **Professional Display**: Clean, modern certification cards
 
-## 📱 Responsive Design
+## Responsive Design
 
 The portfolio is fully responsive and optimized for:
 - **Desktop** (1920px and above)
@@ -226,7 +226,7 @@ The portfolio is fully responsive and optimized for:
 - Simplified layouts for smaller screens
 - Swipe gestures for interactive components
 
-## 🔧 Customization
+## Customization
 
 ### **Adding New Projects**
 1. Open `src/components/ProjectsNew.tsx`
@@ -288,7 +288,7 @@ The portfolio is fully responsive and optimized for:
 }
 ```
 
-## 🚀 Deployment
+## Deployment
 
 ### **Netlify (Recommended)**
 1. Connect your GitHub repository to Netlify
@@ -310,7 +310,7 @@ The portfolio is fully responsive and optimized for:
    ```
 3. Run: `npm run deploy`
 
-## 📊 Performance Optimizations
+## Performance Optimizations
 
 - **Lazy Loading**: Components and images load on demand
 - **Code Splitting**: Automatic bundle splitting for optimal loading
@@ -318,7 +318,7 @@ The portfolio is fully responsive and optimized for:
 - **Animation Performance**: Hardware-accelerated CSS animations
 - **Bundle Analysis**: Optimized bundle size and dependencies
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
@@ -329,32 +329,8 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 4. Test on multiple devices and browsers
 5. Optimize for performance and accessibility
 
-## 📄 License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## 📞 Contact
-
-**Aditya Dasappanavar**
-- 🌐 Portfolio: [adityad-portfolio.netlify.app](https://adityad-portfolio.netlify.app)
-- 💼 LinkedIn: [linkedin.com/in/aditya-dasappanavar](https://linkedin.com/in/aditya-dasappanavar)
-- 📧 Email: adityad2803@gmail.com
-- 🐱 GitHub: [github.com/AdityaD28](https://github.com/AdityaD28)
-
-## 🙏 Acknowledgments
-
-- **Framer Motion** for amazing animation capabilities
-- **Lucide Icons** for beautiful and consistent icons
-- **React Community** for excellent documentation and resources
-- **Open Source Contributors** for inspiration and guidance
-
----
-
-⭐ If you found this portfolio helpful or inspiring, please consider giving it a star!
-
-**Built with ❤️ by Aditya Dasappanavar**
-
-## 🏗️ Build for Production
+## Build for Production
 
 ```bash
 npm run build
@@ -362,7 +338,7 @@ npm run build
 
 This builds the app for production to the `build` folder.
 
-## 📝 Available Scripts
+## Available Scripts
 
 - `npm start` - Runs the app in development mode
 - `npm test` - Launches the test runner
@@ -380,7 +356,7 @@ This builds the app for production to the `build` folder.
 - **Contact**: Contact form and social links
 - **Navigation**: Smooth scrolling navigation
 
-## 🎨 Customization
+## Customization
 
 The portfolio is highly customizable. You can:
 
@@ -390,6 +366,20 @@ The portfolio is highly customizable. You can:
 - Customize animations and transitions
 - Update project information and links
 
-## 📄 License
+## Contact
+
+**Aditya Dasappanavar**
+- Portfolio: [adityad-portfolio.netlify.app](https://adityad-portfolio.netlify.app)
+- LinkedIn: [adityadasappanavar](https://www.linkedin.com/in/adityadasappanavar/)
+- Email: adityad2803@gmail.com
+- GitHub: [github.com/AdityaD28](https://github.com/AdityaD28)
+
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
+
+## Developed By
+
+* **Aditya Dasappanavar**
+* **GitHub:** [AdityaD28](https://github.com/AdityaD28)
+* **LinkedIn:** [adityadasappanavar](https://www.linkedin.com/in/adityadasappanavar/)
