@@ -63,7 +63,9 @@ const Contact: React.FC = () => {
       // Send email using EmailJS
       const templateParams = {
         from_name: formData.name,
+        name: formData.name,
         from_email: formData.email,
+        email: formData.email,
         message: formData.message,
       };
 
