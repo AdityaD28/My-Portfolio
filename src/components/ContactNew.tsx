@@ -65,9 +65,6 @@ const Contact: React.FC = () => {
         from_name: formData.name,
         from_email: formData.email,
         message: formData.message,
-        to_name: 'Aditya Dasappanavar',
-        reply_to: formData.email,
-        to_email: 'adityadasappanavar@gmail.com',
       };
 
       const response = await emailjs.send(
