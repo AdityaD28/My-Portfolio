@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Navigation from './components/Navigation';
+import Hero from './components/Hero';
+import About from './components/About';
+import TimelineNew from './components/TimelineNew';
+import SkillConstellation from './components/SkillConstellation';
+import ProjectsNew from './components/ProjectsNew';
+import CertificationsNew from './components/CertificationsNew';
+import ContactNew from './components/ContactNew';
+import Footer from './components/FooterFixed';
+import FloatingAIAssistant from './components/FloatingAIAssistant';
+import ParticleBackground from './components/ParticleBackground';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ParticleBackground />
+      <Navigation />
+      <FloatingAIAssistant />
+      <Hero />
+      <About />
+      <TimelineNew />
+      <SkillConstellation />
+      <ProjectsNew />        <CertificationsNew />
+        <ContactNew />
+        <Footer />
+      </div>
   );
 }
 

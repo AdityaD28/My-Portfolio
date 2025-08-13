@@ -1,38 +1,1117 @@
-.App {
-  text-align: center;
+/* Import Premium Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@300;400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap');
+
+/* Global Styles & Glassmorphism Theme */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  margin: 0;
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #0c0c1e 0%, #1a1a2e 50%, #16213e 100%);
+  background-attachment: fixed;
+  color: #ffffff;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+}
+
+.App {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Glass Morphism Base */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.glass-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 12px 48px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #f8fafc;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  background: linear-gradient(135deg, #64748b 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+p {
+  line-height: 1.7;
+  color: #cbd5e1;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-weight: 500;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 16px 40px;
+  border: none;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Satoshi', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  box-shadow: 
+    0 4px 16px rgba(99, 102, 241, 0.3),
+    0 8px 32px rgba(139, 92, 246, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 8px 24px rgba(99, 102, 241, 0.4),
+    0 16px 48px rgba(139, 92, 246, 0.3);
+  background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.btn-glow {
+  position: relative;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00d4ff, #7c3aed, #f59e0b, #00d4ff);
+  background-size: 300% 300%;
+  border-radius: 18px;
+  z-index: -1;
+  animation: gradientRotate 6s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn-glow:hover::before {
+  opacity: 1;
+}
+
+@keyframes gradientRotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-@keyframes App-logo-spin {
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: visible !important;
+  position: relative;
+}
+
+/* Section Spacing */
+.section {
+  padding: 120px 0;
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  overflow: visible !important;
+  box-sizing: border-box;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title h2 {
+  margin-bottom: 1rem;
+}
+
+.section-title .subtitle {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Grid Layouts */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.grid-3 {
+  overflow: visible !important;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+}
+
+/* Specific grid fixes for responsive design */
+.contact-grid, .about-grid, .hero-grid {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Animations */
+@keyframes fadeInUp {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(30px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Skill Tags */
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  color: #e2e8f0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 4px;
+  transition: all 0.3s ease;
+  overflow: visible !important;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+}
+
+.skill-tag:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.status-badge.active {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.status-badge.learning {
+  background: rgba(249, 115, 22, 0.2);
+  color: #f97316;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+/* Loading States */
+.skeleton {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+  border-radius: 8px;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+
+/* Hide scrollbar for Firefox */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Final overflow prevention layer */
+*, *::before, *::after {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Specific viewport constraints */
+:root {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100vw !important;
+}
+
+/* Prevent any element from extending beyond viewport */
+body > * {
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
+}
+
+/* Comprehensive Overflow Management */
+.section {
+  overflow: visible !important;
+  position: relative;
+  isolation: isolate;
+}
+
+.container {
+  overflow: visible !important;
+  position: relative;
+}
+
+.glass-card {
+  overflow: visible !important;
+  isolation: isolate;
+  position: relative;
+}
+
+.timeline-card {
+  overflow: visible !important;
+  isolation: isolate;
+}
+
+/* Animation Container Fixes */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal and Overlay Fixes */
+.modal-overlay {
+  overflow: visible !important;
+  isolation: isolate;
+  backdrop-filter: blur(20px);
+}
+
+/* Component-specific fixes */
+#projects {
+  overflow: visible !important;
+}
+
+#timeline {
+  overflow: visible !important;
+}
+
+#certifications {
+  overflow: visible !important;
+}
+
+#contact {
+  overflow: visible !important;
+}
+
+#skills {
+  overflow: visible !important;
+}
+
+#about {
+  overflow: visible !important;
+}
+
+#home {
+  overflow: visible !important;
+}
+
+/* Form Element Fixes */
+.form-field {
+  overflow: visible !important;
+  position: relative;
+  isolation: isolate;
+}
+
+.floating-label {
+  overflow: visible !important;
+  position: absolute;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Navigation Fixes */
+nav {
+  overflow: visible !important;
+  isolation: isolate;
+}
+
+.nav-underline {
+  overflow: visible !important;
+}
+
+/* Footer Fixes */
+footer {
+  overflow: visible !important;
+  isolation: isolate;
+}
+
+/* Canvas and Background Fixes */
+canvas {
+  overflow: visible !important;
+  clip-path: inset(0);
+}
+
+/* Performance Optimizations */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .glass-card {
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #0c0c1e 0%, #1a1a2e 50%, #16213e 100%);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .hero-grid, .contact-grid, .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+  
+  .section {
+    padding: 100px 0;
+  }
+  
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .section {
+    padding: 80px 0;
+  }
+  
+  .grid-2, .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .contact-grid, .about-grid, .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .glass-card {
+    padding: 20px !important;
+  }
+  
+  .section-title {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .section {
+    padding: 60px 0;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .skill-tag {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+  
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .glass-card {
+    padding: 16px !important;
+    border-radius: 16px;
+  }
+}
+
+/* Profile Picture Scroll Fix */
+.hero .profile-container,
+.hero .profile-image {
+  transform: translate3d(0, 0, 0) !important;
+  will-change: auto !important;
+  position: relative !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Ultimate Profile Picture Scroll Fix - NUCLEAR OPTION */
+.hero .profile-container,
+.hero .profile-image,
+.hero .static-profile,
+.hero .profile-container *,
+.hero .profile-image *,
+.hero .static-profile * {
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  -moz-transform: translate3d(0, 0, 0) !important;
+  -ms-transform: translate3d(0, 0, 0) !important;
+  will-change: auto !important;
+  animation: none !important;
+  transition: none !important;
+  position: relative !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  -moz-backface-visibility: hidden !important;
+  -ms-backface-visibility: hidden !important;
+}
+
+/* NUCLEAR OPTION: Disable ALL transforms and animations on profile */
+.hero .static-profile {
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  -moz-transform: translate3d(0, 0, 0) !important;
+  -ms-transform: translate3d(0, 0, 0) !important;
+  animation: none !important;
+  transition: none !important;
+  will-change: auto !important;
+  contain: strict !important;
+  isolation: isolate !important;
+  pointer-events: none !important; /* Disable any interactions */
+}
+
+/* Prevent any scroll-based transforms - ULTIMATE LOCKDOWN */
+.hero .profile-container {
+  contain: layout style paint size !important;
+  isolation: isolate !important;
+  overflow: visible !important;
+}
+
+/* Isolate profile from parent transforms - MAXIMUM STRENGTH */
+.hero .profile-image {
+  isolation: isolate !important;
+  contain: layout style paint size !important;
+  overflow: visible !important;
+}
+
+/* Override any framer-motion transforms - COMPLETE OVERRIDE */
+.hero [data-framer-name*="profile"],
+.hero [class*="profile"],
+.hero .static-profile {
+  transform: translate3d(0, 0, 0) !important;
+  animation: none !important;
+  transition: none !important;
+  will-change: auto !important;
+}
+
+/* Disable ALL motion on profile elements */
+.hero .static-profile * {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* NUCLEAR OPTION - COMPLETELY LOCK PROFILE PICTURE */
+.no-motion,
+.no-motion *,
+.static-profile,
+.static-profile *,
+.hero .no-motion,
+.hero .no-motion *,
+.hero .static-profile,
+.hero .static-profile * {
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  -moz-transform: translate3d(0, 0, 0) !important;
+  -ms-transform: translate3d(0, 0, 0) !important;
+  -o-transform: translate3d(0, 0, 0) !important;
+  animation: none !important;
+  -webkit-animation: none !important;
+  -moz-animation: none !important;
+  -ms-animation: none !important;
+  -o-animation: none !important;
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  will-change: auto !important;
+  contain: strict !important;
+  isolation: isolate !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  -moz-backface-visibility: hidden !important;
+  -ms-backface-visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Disable ALL CSS animations globally for profile */
+.hero .profile-container,
+.hero .profile-image,
+.hero .static-profile,
+.hero .no-motion {
+  animation-name: none !important;
+  animation-duration: 0s !important;
+  animation-timing-function: linear !important;
+  animation-delay: 0s !important;
+  animation-iteration-count: 1 !important;
+  animation-direction: normal !important;
+  animation-fill-mode: none !important;
+  animation-play-state: paused !important;
+  transition-property: none !important;
+  transition-duration: 0s !important;
+  transition-timing-function: linear !important;
+  transition-delay: 0s !important;
+}
+
+/* Override any external motion libraries */
+.hero .no-motion[style*="transform"],
+.hero .static-profile[style*="transform"] {
+  transform: translate3d(0, 0, 0) !important;
+}
+
+/* ULTIMATE NUCLEAR OPTION - KILL ALL MOTION COMPLETELY */
+.kill-all-motion,
+.kill-all-motion *,
+.hero .kill-all-motion,
+.hero .kill-all-motion * {
+  transform: none !important;
+  -webkit-transform: none !important;
+  -moz-transform: none !important;
+  -ms-transform: none !important;
+  -o-transform: none !important;
+  animation: none !important;
+  -webkit-animation: none !important;
+  -moz-animation: none !important;
+  -ms-animation: none !important;
+  -o-animation: none !important;
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  will-change: auto !important;
+  position: relative !important;
+  left: auto !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 auto !important;
+  float: none !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  -moz-backface-visibility: hidden !important;
+  -ms-backface-visibility: hidden !important;
+  perspective: none !important;
+  -webkit-perspective: none !important;
+  -moz-perspective: none !important;
+  -ms-perspective: none !important;
+  transform-style: flat !important;
+  -webkit-transform-style: flat !important;
+  -moz-transform-style: flat !important;
+  -ms-transform-style: flat !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  -moz-filter: none !important;
+  -ms-filter: none !important;
+}
+
+/* Override ANY possible motion effects */
+.kill-all-motion {
+  animation-name: none !important;
+  animation-duration: 0s !important;
+  animation-timing-function: linear !important;
+  animation-delay: 0s !important;
+  animation-iteration-count: 1 !important;
+  animation-direction: normal !important;
+  animation-fill-mode: none !important;
+  animation-play-state: paused !important;
+  transition-property: none !important;
+  transition-duration: 0s !important;
+  transition-timing-function: linear !important;
+  transition-delay: 0s !important;
+}
+
+/* Disable ANY external library transforms */
+.hero .kill-all-motion[style*="transform"],
+.hero .kill-all-motion[data-framer-motion],
+.hero .kill-all-motion[data-motion] {
+  transform: none !important;
+}
+
+/* ULTIMATE ABSOLUTE LOCK - FIXED POSITION PROFILE PICTURE */
+.absolute-lock,
+.hero .absolute-lock,
+.absolute-lock *,
+.hero .absolute-lock * {
+  position: fixed !important;
+  top: 50vh !important;
+  right: 15% !important;
+  margin-top: -130px !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  margin-bottom: 0 !important;
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  -moz-transform: translate3d(0, 0, 0) !important;
+  -ms-transform: translate3d(0, 0, 0) !important;
+  -o-transform: translate3d(0, 0, 0) !important;
+  animation: none !important;
+  transition: none !important;
+  will-change: auto !important;
+  contain: strict !important;
+  isolation: isolate !important;
+  pointer-events: none !important;
+  z-index: 999 !important;
+}
+
+/* Override ANY possible positioning changes */
+.absolute-lock {
+  left: auto !important;
+  bottom: auto !important;
+  float: none !important;
+  clear: none !important;
+  display: flex !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  flex-basis: auto !important;
+}
+
+/* Responsive positioning adjustments */
+@media (max-width: 1200px) {
+  .absolute-lock {
+    right: 10% !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .absolute-lock {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    margin-top: 0 !important;
+    margin: 0 auto !important;
+    z-index: 1 !important;
+  }
+}
+
+/* Force exact positioning on all viewport sizes */
+.hero .absolute-lock[style*="position"] {
+  position: fixed !important;
+  top: 50vh !important;
+  right: 15% !important;
+}
+
+@media (min-width: 1025px) {
+  .hero .absolute-lock {
+    position: fixed !important;
+    top: 50vh !important;
+    right: 15% !important;
+    margin-top: -130px !important;
+    z-index: 999 !important;
+  }
+}
+
+/* ULTRA-AGGRESSIVE INDEPENDENT PROFILE PICTURE LOCK */
+.independent-profile,
+.hero .independent-profile,
+.independent-profile *,
+.hero .independent-profile * {
+  position: fixed !important;
+  top: 50vh !important;
+  right: 15% !important;
+  margin-top: -130px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+  left: auto !important;
+  bottom: auto !important;
+  transform: translate3d(0, 0, 0) !important;
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  -moz-transform: translate3d(0, 0, 0) !important;
+  -ms-transform: translate3d(0, 0, 0) !important;
+  -o-transform: translate3d(0, 0, 0) !important;
+  animation: none !important;
+  -webkit-animation: none !important;
+  -moz-animation: none !important;
+  -ms-animation: none !important;
+  -o-animation: none !important;
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  will-change: auto !important;
+  contain: strict !important;
+  isolation: isolate !important;
+  pointer-events: none !important;
+  z-index: 1000 !important;
+  float: none !important;
+  clear: none !important;
+  display: flex !important;
+  width: 260px !important;
+  height: 260px !important;
+  flex-shrink: 0 !important;
+  flex-grow: 0 !important;
+  flex-basis: auto !important;
+  overflow: hidden !important;
+}
+
+/* DISABLE ALL POSSIBLE LAYOUT INFLUENCES */
+.independent-profile {
+  grid-column: unset !important;
+  grid-row: unset !important;
+  grid-area: unset !important;
+  align-self: auto !important;
+  justify-self: auto !important;
+  order: 0 !important;
+  flex: none !important;
+}
+
+/* OVERRIDE ANY EXTERNAL INFLUENCES */
+body .independent-profile,
+html .independent-profile,
+* .independent-profile {
+  position: fixed !important;
+  top: 50vh !important;
+  right: 15% !important;
+  margin-top: -130px !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+/* RESPONSIVE INDEPENDENCE */
+@media (max-width: 1200px) {
+  .independent-profile {
+    right: 10% !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .independent-profile {
+    display: none !important;
+  }
+}
+
+/* FORCE EXACT COORDINATES */
+.hero .independent-profile[style*="position"] {
+  position: fixed !important;
+  top: 50vh !important;
+  right: 15% !important;
+  margin-top: -130px !important;
+}
+
+/* NUCLEAR OPTION: OVERRIDE EVERYTHING */
+.independent-profile {
+  position: fixed !important;
+  top: 50vh !important;
+  right: 15% !important;
+  margin-top: -130px !important;
+  transform: translate3d(0, 0, 0) !important;
+  z-index: 1000 !important;
+}
+
+/* CLEAN FIXED PROFILE PICTURE - FINAL SOLUTION */
+.fixed-profile-picture {
+  position: fixed !important;
+  top: 50vh !important;
+  right: 15% !important;
+  transform: translateY(-50%) !important;
+  width: 260px !important;
+  height: 260px !important;
+  z-index: 1000 !important;
+  pointer-events: none !important;
+  
+  /* Disable all animations and transitions */
+  animation: none !important;
+  transition: none !important;
+  will-change: auto !important;
+  
+  /* Ensure it stays in place */
+  margin: 0 !important;
+  left: auto !important;
+  bottom: auto !important;
+  
+  /* Hardware acceleration */
+  -webkit-transform: translateY(-50%) !important;
+  -moz-transform: translateY(-50%) !important;
+  -ms-transform: translateY(-50%) !important;
+  -o-transform: translateY(-50%) !important;
+  
+  /* Isolation */
+  isolation: isolate !important;
+  contain: strict !important;
+}
+
+/* Responsive positioning */
+@media (max-width: 1200px) {
+  .fixed-profile-picture {
+    right: 10% !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .fixed-profile-picture {
+    display: none !important;
+  }
+}
+
+/* Override any external interference */
+body .fixed-profile-picture,
+html .fixed-profile-picture,
+* .fixed-profile-picture {
+  position: fixed !important;
+  top: 50vh !important;
+  transform: translateY(-50%) !important;
 }
