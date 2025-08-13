@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
 
   // EmailJS configuration - using environment variables for security
-  const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_k3df1zh';
+  const EMAILJS_SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID || 'service_su988du';
   const EMAILJS_TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || 'template_ynropac';
   const EMAILJS_PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || 'EI9Vj3qhdzoFTLLOd';
 
@@ -40,37 +40,56 @@ const Contact: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!formData.name || !formData.email || !formData.message) {
-      setFormStatus({ type: 'error', message: 'Please fill out all fields.' });
-      return;
-    }
-
     setIsSubmitting(true);
     setFormStatus({ type: null, message: '' });
 
-    const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
-      message: formData.message,
-    };
-
     try {
-      await emailjs.send(
+      // Validate form data
+      if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+        throw new Error('Please fill in all fields');
+      }
+
+      // Email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        throw new Error('Please enter a valid email address');
+      }
+
+      // Check if EmailJS is properly configured
+      if (EMAILJS_PUBLIC_KEY === 'YOUR_EMAILJS_PUBLIC_KEY' || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
+        throw new Error('EmailJS is not configured. Please set environment variables.');
+      }
+
+      // Send email using EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_name: 'Aditya Dasappanavar',
+        reply_to: formData.email,
+        to_email: 'adityadasappanavar@gmail.com',
+      };
+
+      const response = await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         templateParams,
         EMAILJS_PUBLIC_KEY
       );
 
+      console.log('Email sent successfully:', response);
+
       setFormStatus({
         type: 'success',
-        message: "Thank you for your message! I'll get back to you within 24 hours."
+        message: 'Thank you for your message! I\'ll get back to you within 24 hours.'
       });
+      
       setFormData({ name: '', email: '', message: '' });
-
-    } catch (error) {
+      
+    } catch (error: any) {
       console.error('Email sending error:', error);
+      
+      // If EmailJS fails, provide fallback option
       setFormStatus({
         type: 'error',
         message: 'Unable to send message automatically. Please contact me directly at adityadasappanavar@gmail.com'
