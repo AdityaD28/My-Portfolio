@@ -57,22 +57,7 @@ const Contact: React.FC = () => {
 
       // Check if EmailJS is properly configured
       if (EMAILJS_PUBLIC_KEY === 'YOUR_EMAILJS_PUBLIC_KEY' || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
-        // Fallback: Open email client with pre-filled content
-        const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
-        const body = encodeURIComponent(
-          `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-        );
-        const mailtoLink = `mailto:adityadasappanavar@gmail.com?subject=${subject}&body=${body}`;
-        
-        window.open(mailtoLink, '_blank');
-        
-        setFormStatus({
-          type: 'success',
-          message: 'Your email client has been opened with the message. Please send it from there!'
-        });
-        
-        setFormData({ name: '', email: '', message: '' });
-        return;
+        throw new Error('EmailJS is not configured. Please set environment variables.');
       }
 
       // Send email using EmailJS
