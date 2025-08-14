@@ -10,7 +10,7 @@ interface Skill {
   id: string;
   name: string;
   level: number; // 1-100
-  category: 'core' | 'frontend' | 'ai' | 'tools';
+  category: 'core' | 'frontend' | 'backend' | 'ai' | 'database' | 'tools';
   logo: string; // Path to logo image in public folder
   description: string;
   related: string[];
@@ -29,7 +29,16 @@ const SkillConstellation: React.FC = () => {
       category: 'core', 
       logo: '/logos/python.png',
       description: 'Advanced programming with data structures, algorithms, and OOP',
-      related: ['tensorflow', 'scikit-learn', 'pandas']
+      related: ['django', 'fastapi', 'tensorflow']
+    },
+    { 
+      id: 'javascript', 
+      name: 'JavaScript', 
+      level: 90, 
+      category: 'core', 
+      logo: '/logos/javascript.png',
+      description: 'ES6+, asynchronous programming, and DOM manipulation',
+      related: ['react', 'nodejs']
     },
 
     // Frontend Development
@@ -40,7 +49,7 @@ const SkillConstellation: React.FC = () => {
       category: 'frontend', 
       logo: '/logos/react.png',
       description: 'Hooks, Context API, performance optimization, and modern patterns',
-      related: ['tailwind', 'css']
+      related: ['javascript', 'tailwind', 'css']
     },
     { 
       id: 'tailwind', 
@@ -49,7 +58,16 @@ const SkillConstellation: React.FC = () => {
       category: 'frontend', 
       logo: '/logos/tailwind.png',
       description: 'Utility-first CSS framework for rapid UI development',
-      related: ['react', 'css']
+      related: ['react', 'css', 'html']
+    },
+    {
+      id: 'bootstrap',
+      name: 'Bootstrap',
+      level: 80,
+      category: 'frontend',
+      logo: '/logos/bootstrap.png',
+      description: 'Responsive layouts and pre-built components for faster design',
+      related: ['html', 'css', 'javascript']
     },
     { 
       id: 'css', 
@@ -70,6 +88,26 @@ const SkillConstellation: React.FC = () => {
       related: ['css']
     },
 
+    // Backend Development
+    {
+      id: 'django',
+      name: 'Django',
+      level: 85,
+      category: 'backend',
+      logo: '/logos/django.png',
+      description: 'High-level Python web framework for rapid and secure development',
+      related: ['python', 'fastapi', 'mysql']
+    },
+    {
+      id: 'fastapi',
+      name: 'FastAPI',
+      level: 88,
+      category: 'backend',
+      logo: '/logos/fastapi.png',
+      description: 'Modern, high-performance web framework for building APIs with Python',
+      related: ['python', 'django', 'mongodb']
+    },
+
     // AI/ML
     { 
       id: 'tensorflow', 
@@ -78,7 +116,7 @@ const SkillConstellation: React.FC = () => {
       category: 'ai', 
       logo: '/logos/tensorflow.png',
       description: 'Deep learning models, neural networks, and model deployment',
-      related: ['python', 'ml']
+      related: ['python', 'scikit-learn', 'numpy']
     },
     { 
       id: 'scikit-learn', 
@@ -96,7 +134,7 @@ const SkillConstellation: React.FC = () => {
       category: 'ai', 
       logo: '/logos/pandas.png',
       description: 'Data manipulation, analysis, and ETL processes',
-      related: ['python', 'numpy']
+      related: ['python', 'numpy', 'matplotlib']
     },
     { 
       id: 'numpy', 
@@ -105,26 +143,75 @@ const SkillConstellation: React.FC = () => {
       category: 'ai', 
       logo: '/logos/numpy.png',
       description: 'Numerical computing and array operations',
-      related: ['python', 'pandas']
+      related: ['python', 'pandas', 'scikit-learn']
+    },
+    {
+      id: 'matplotlib',
+      name: 'Matplotlib',
+      level: 85,
+      category: 'ai',
+      logo: '/logos/matplotlib.png',
+      description: 'Creating static, animated, and interactive visualizations in Python',
+      related: ['python', 'pandas', 'numpy']
+    },
+
+    // Database
+    {
+      id: 'mysql',
+      name: 'MySQL',
+      level: 82,
+      category: 'database',
+      logo: '/logos/mysql.png',
+      description: 'Relational database management for structured data storage and querying',
+      related: ['django', 'python']
+    },
+    {
+      id: 'mongodb',
+      name: 'MongoDB',
+      level: 80,
+      category: 'database',
+      logo: '/logos/mongodb.png',
+      description: 'NoSQL document-oriented database for flexible and scalable data',
+      related: ['fastapi', 'react', 'nodejs']
     },
 
     // Tools
     { 
       id: 'git', 
-      name: 'Git', 
-      level: 85, 
+      name: 'GitHub', 
+      level: 90, 
       category: 'tools', 
       logo: '/logos/git.png',
-      description: 'Version control, collaboration, and workflow management',
-      related: []
+      description: 'Version control, collaboration, and workflow management with Git',
+      related: ['vscode']
+    },
+    {
+      id: 'vscode',
+      name: 'VS Code',
+      level: 95,
+      category: 'tools',
+      logo: '/logos/vscode.png',
+      description: 'Advanced code editing, debugging, and integrated terminal usage',
+      related: ['git', 'python', 'react']
+    },
+    {
+      id: 'google-colab',
+      name: 'Google Colab',
+      level: 88,
+      category: 'tools',
+      logo: '/logos/google-colab.png',
+      description: 'Cloud-based Jupyter notebook environment for AI/ML experimentation',
+      related: ['python', 'tensorflow', 'pandas']
     }
   ];
 
   const categories = {
     core: { name: 'Core Programming', icon: Cpu, color: '#667eea', gradient: 'from-blue-500 to-purple-600' },
-    frontend: { name: 'Frontend Development', icon: Globe, color: '#f093fb', gradient: 'from-pink-500 to-rose-500' },
-    ai: { name: 'AI & Machine Learning', icon: Brain, color: '#43e97b', gradient: 'from-green-400 to-emerald-500' },
-    tools: { name: 'Tools & Technologies', icon: Wrench, color: '#ffa726', gradient: 'from-orange-400 to-amber-500' }
+    frontend: { name: 'Frontend', icon: Globe, color: '#f093fb', gradient: 'from-pink-500 to-rose-500' },
+    backend: { name: 'Backend', icon: Server, color: '#38b2ac', gradient: 'from-teal-400 to-cyan-500' },
+    ai: { name: 'AI & ML', icon: Brain, color: '#43e97b', gradient: 'from-green-400 to-emerald-500' },
+    database: { name: 'Databases', icon: Database, color: '#f6ad55', gradient: 'from-orange-400 to-yellow-500' },
+    tools: { name: 'Tools & Platforms', icon: Wrench, color: '#9f7aea', gradient: 'from-purple-400 to-indigo-500' }
   };
 
   const getSkillsByCategory = (category: string) => 
