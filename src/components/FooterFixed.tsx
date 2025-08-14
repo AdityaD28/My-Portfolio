@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
   ];
   
   const services: ServiceItem[] = [
-    { name: 'Front-End Web Development' },
+    { name: 'Full-Stack Web Development' },
     { name: 'AI/ML Solutions' },
     { name: 'Python Development' },
     { name: 'Responsive Web Design' },
@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
               marginBottom: '24px',
               fontSize: '14px'
             }}>
-              Final-year Computer Science student specializing in AI/ML, front-end  development. Proven ability to architect and deliver high-impact solutions.
+              Final-year Computer Science student specializing in AI/ML, full-stack  development. Proven ability to architect and deliver high-impact solutions.
             </p>
             
             {/* Social Links */}

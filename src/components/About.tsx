@@ -94,7 +94,7 @@ const About: React.FC = () => {
                 lineHeight: '1.7',
                 marginBottom: '24px'
               }}>
-                Specializing in <span style={{ color: '#6366f1', fontWeight: '600' }}>Front-End Development</span> and 
+                Specializing in <span style={{ color: '#6366f1', fontWeight: '600' }}>Full-Stack Development</span> and 
                 <span style={{ color: '#22c55e', fontWeight: '600' }}> AI/ML technologies</span>, I love building 
                 solutions that bridge the gap between complex technology and user-friendly experiences.
               </p>

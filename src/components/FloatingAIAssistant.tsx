@@ -72,7 +72,7 @@ const FloatingAIAssistant: React.FC = () => {
       university: 'Presidency University',
       degree: 'B.E. Computer Science',
       period: '2022 - 2026',
-      specialization: 'AI/ML & Front-End Development'
+      specialization: 'AI/ML & Full-Stack Development'
     },
     contact: {
       email: 'adityadasappanavar@gmail.com',
@@ -106,7 +106,7 @@ const FloatingAIAssistant: React.FC = () => {
         };
       }
       return {
-        response: `Aditya's core technical skills include ${knowledgeBase.skills.core.join(', ')}. He combines AI/ML expertise with front-end development to create intelligent web applications.`,
+        response: `Aditya's core technical skills include ${knowledgeBase.skills.core.join(', ')}. He combines AI/ML expertise with full-stack development to create intelligent web applications.`,
         confidence: 0.9
       };
     }
@@ -178,7 +178,7 @@ const FloatingAIAssistant: React.FC = () => {
 
     // Default responses for unclear questions
     return {
-      response: `I'd be happy to help! I can tell you about Aditya's skills (AI/ML, front-end development), projects (GreenGuardian, hand gesture recognition), experience at SKillCraft Technology, education, or how to contact him. What specific area interests you?`,
+      response: `I'd be happy to help! I can tell you about Aditya's skills (AI/ML, full-stack development), projects (GreenGuardian, hand gesture recognition), experience at SKillCraft Technology, education, or how to contact him. What specific area interests you?`,
       confidence: 0.7
     };
   };

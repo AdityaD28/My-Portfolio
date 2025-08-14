@@ -207,7 +207,7 @@ const SkillConstellation: React.FC = () => {
 
   const categories = {
     core: { name: 'Core Programming', icon: Cpu, color: '#667eea', gradient: 'from-blue-500 to-purple-600' },
-    frontend: { name: 'Frontend', icon: Globe, color: '#f093fb', gradient: 'from-pink-500 to-rose-500' },
+    frontend: { name: 'Full-Stack', icon: Globe, color: '#f093fb', gradient: 'from-pink-500 to-rose-500' },
     backend: { name: 'Backend', icon: Server, color: '#38b2ac', gradient: 'from-teal-400 to-cyan-500' },
     ai: { name: 'AI & ML', icon: Brain, color: '#43e97b', gradient: 'from-green-400 to-emerald-500' },
     database: { name: 'Databases', icon: Database, color: '#f6ad55', gradient: 'from-orange-400 to-yellow-500' },
