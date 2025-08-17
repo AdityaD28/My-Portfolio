@@ -117,20 +117,23 @@ const Timeline: React.FC = () => {
             isolation: 'isolate'
           }}
         >
-          {/* Arrow pointing to timeline */}
-          <div style={{
-            position: 'absolute',
-            top: '40px',
-            [isLeft ? 'right' : 'left']: '-10px',
-            width: '20px',
-            height: '20px',
-            background: 'rgba(255, 255, 255, 0.05)',
-            backdropFilter: 'blur(20px)',
-            border: `1px solid ${item.color}30`,
-            transform: 'rotate(45deg)',
-            borderTop: 'none',
-            borderLeft: 'none'
-          }} />
+          {/* Arrow pointing to timeline - Hidden on mobile */}
+          <div 
+            className="timeline-arrow"
+            style={{
+              position: 'absolute',
+              top: '40px',
+              [isLeft ? 'right' : 'left']: '-10px',
+              width: '20px',
+              height: '20px',
+              background: 'rgba(255, 255, 255, 0.05)',
+              backdropFilter: 'blur(20px)',
+              border: `1px solid ${item.color}30`,
+              transform: 'rotate(45deg)',
+              borderTop: 'none',
+              borderLeft: 'none'
+            }} 
+          />
 
           {/* Status Badge */}
           <div style={{
@@ -461,27 +464,110 @@ const Timeline: React.FC = () => {
       <style>{`
         @media (max-width: 1024px) {
           .timeline-card {
-            width: 80% !important;
-            maxWidth: 80% !important;
+            width: 70% !important;
+            max-width: 70% !important;
           }
         }
         
         @media (max-width: 768px) {
-          .timeline-card {
-            width: 95% !important;
-            maxWidth: 95% !important;
-          }
-          
           .timeline-container {
             padding: 0 1rem !important;
+            max-width: 100% !important;
+          }
+          
+          .timeline-card {
+            width: 85% !important;
+            max-width: 85% !important;
+            padding: 24px !important;
+            margin-bottom: 60px !important;
+          }
+          
+          .timeline-card h3 {
+            font-size: 1.2rem !important;
+          }
+          
+          .timeline-card h4 {
+            font-size: 1rem !important;
+          }
+          
+          .timeline-card p {
+            font-size: 0.85rem !important;
+          }
+          
+          .timeline-card span {
+            font-size: 0.8rem !important;
           }
         }
         
         @media (max-width: 480px) {
-          .timeline-card {
-            width: 100% !important;
-            maxWidth: 100% !important;
+          .timeline-container {
+            padding: 0 0.5rem !important;
             margin: 0 !important;
+          }
+          
+          .timeline-container > div[style*="position: absolute"][style*="linear-gradient"] {
+            display: none !important;
+          }
+          
+          .timeline-card {
+            width: 90% !important;
+            max-width: 90% !important;
+            padding: 20px !important;
+            margin-bottom: 50px !important;
+            position: relative !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+          }
+          
+          .timeline-arrow {
+            display: none !important;
+          }
+          
+          .timeline-card h3 {
+            font-size: 1.1rem !important;
+            line-height: 1.3 !important;
+          }
+          
+          .timeline-card h4 {
+            font-size: 0.95rem !important;
+          }
+          
+          .timeline-card p {
+            font-size: 0.8rem !important;
+            line-height: 1.4 !important;
+          }
+          
+          .timeline-card span {
+            font-size: 0.75rem !important;
+          }
+          
+          .timeline-card > div[style*="display: flex"] {
+            flex-direction: column !important;
+            gap: 8px !important;
+          }
+          
+          .timeline-card img {
+            width: 24px !important;
+            height: 24px !important;
+          }
+          
+          /* Hide timeline nodes on mobile */
+          .timeline-card + div[style*="position: absolute"][style*="borderRadius"] {
+            display: none !important;
+          }
+          
+          /* Timeline container mobile layout */
+          .timeline-container > div:first-child {
+            position: relative !important;
+            left: auto !important;
+            transform: none !important;
+            width: 100% !important;
+          }
+          
+          /* Center all timeline items */
+          .timeline-container > div[style*="display: flex"] {
+            justify-content: center !important;
+            margin-bottom: 30px !important;
           }
         }
       `}</style>

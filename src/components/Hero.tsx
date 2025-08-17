@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ArrowDown, Sparkles } from 'lucide-react';
 import { gsap } from 'gsap';
+import profileImage from '../profile2.png';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -70,7 +71,7 @@ const Hero: React.FC = () => {
         <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'center', minHeight: '70vh' }}>
           <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} style={{ textAlign: 'left' }}>
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} style={{ marginBottom: '24px' }}>
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '32px' }}>
+              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '32px', justifyContent: 'center' }} className="skill-tags-container">
                 <span className="skill-tag"><Sparkles size={16} style={{ marginRight: '8px' }} />Full-Stack Developer</span>
                 <span className="skill-tag">AI/ML Enthusiast</span>
                 <span className="skill-tag">Open Source</span>
@@ -92,7 +93,7 @@ const Hero: React.FC = () => {
               powered by <span style={{ color: '#764ba2', fontWeight: '600' }}>machine learning models</span> with a strong focus on usability, performance, and real-world impact.
             </motion.p>
 
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} style={{ display: 'flex', gap: '16px', marginBottom: '40px', flexWrap: 'wrap' }}>
+            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} style={{ display: 'flex', gap: '16px', marginBottom: '40px', flexWrap: 'wrap', justifyContent: 'center' }} className="hero-buttons">
               <button className="btn btn-primary btn-glow" onClick={scrollToProjects} style={{ fontSize: '1.1rem' }}>
                 Explore My Work <ArrowDown size={20} style={{ marginLeft: '8px' }} />
               </button>
@@ -101,7 +102,7 @@ const Hero: React.FC = () => {
               </button>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.9 }} style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.9 }} style={{ display: 'flex', gap: '16px', alignItems: 'center', justifyContent: 'center' }} className="social-links">
               {[{ icon: <Github size={20} />, href: 'https://github.com/AdityaD28', label: 'GitHub' }, { icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/in/adityadasappanavar/', label: 'LinkedIn' }, { icon: <Mail size={20} />, href: 'mailto:adityadasappanavar@gmail.com', label: 'Email' }].map((social, index) => (
                 <motion.a key={index} href={social.href} target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.4, delay: 1 + index * 0.1 }} whileHover={{ scale: 1.1, y: -2 }} whileTap={{ scale: 0.95 }} style={{ padding: '12px', background: 'rgba(255, 255, 255, 0.08)', backdropFilter: 'blur(20px)', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '12px', color: '#e2e8f0', textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.3s ease' }} title={social.label}>
                   {social.icon}
@@ -110,20 +111,97 @@ const Hero: React.FC = () => {
             </motion.div>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative', width: '300px', height: '300px', overflow: 'hidden', borderRadius: '50%', margin: '0 auto', zIndex: 2 }}>
-            <motion.div animate={{ rotate: 360 }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }} style={{ position: 'absolute', width: '100%', height: '100%', borderRadius: '50%', background: 'conic-gradient(from 0deg, #667eea, #764ba2, #43e97b, #667eea)', opacity: 0.08, zIndex: 0 }} />
-            <div style={{ width: '280px', height: '280px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))', backdropFilter: 'blur(30px)', border: '2px solid rgba(255, 255, 255, 0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1, boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)', overflow: 'hidden' }}>
-              <img
-                src="/profile2.png"
-                alt="Profile"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  borderRadius: '50%'
-                }}
-              />
-
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }} 
+            animate={{ opacity: 1, x: 0 }} 
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }} 
+            className="profile-container"
+            style={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center', 
+              position: 'relative', 
+              width: '300px', 
+              height: '300px', 
+              margin: '0 auto', 
+              zIndex: 2 
+            }}
+          >
+            {/* Rotating background gradient */}
+            <motion.div 
+              animate={{ rotate: 360 }} 
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }} 
+              style={{ 
+                position: 'absolute', 
+                width: '100%', 
+                height: '100%', 
+                borderRadius: '50%', 
+                background: 'conic-gradient(from 0deg, #667eea, #764ba2, #43e97b, #667eea)', 
+                opacity: 0.08, 
+                zIndex: 0 
+              }} 
+            />
+            
+            {/* Glass frame container */}
+            <div style={{ 
+              width: '280px', 
+              height: '280px', 
+              borderRadius: '50%', 
+              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05))', 
+              backdropFilter: 'blur(30px)', 
+              border: '2px solid rgba(255, 255, 255, 0.2)', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              zIndex: 1, 
+              boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)', 
+              overflow: 'hidden',
+              position: 'relative'
+            }}>
+              {/* Profile image */}
+              <div style={{
+                width: '260px',
+                height: '260px',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                position: 'relative',
+                background: 'linear-gradient(135deg, #667eea, #764ba2)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: 'white',
+                fontSize: '4rem',
+                fontWeight: 'bold'
+              }}>
+                <img
+                  src={profileImage}
+                  alt="Profile"
+                  onError={(e) => {
+                    console.log('Image failed to load:', e);
+                    console.log('Attempted to load:', profileImage);
+                    e.currentTarget.style.display = 'none';
+                    // Show fallback text
+                    const parent = e.currentTarget.parentElement;
+                    if (parent) {
+                      parent.innerHTML = '<div style="color: white; font-size: 3rem; font-weight: bold;">AD</div>';
+                    }
+                  }}
+                  onLoad={() => {
+                    console.log('Image loaded successfully from:', profileImage);
+                  }}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center center',
+                    borderRadius: '50%',
+                    display: 'block',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0
+                  }}
+                />
+              </div>
             </div>
           </motion.div>
         </div>
@@ -145,15 +223,158 @@ const Hero: React.FC = () => {
             gap: 40px !important;
             text-align: center !important;
           }
+          
+          .skill-tags-container {
+            justify-content: center !important;
+          }
+          
+          .hero-buttons {
+            justify-content: center !important;
+          }
+          
+          .social-links {
+            justify-content: center !important;
+          }
         }
 
         @media (max-width: 768px) {
           .hero {
             padding-top: 100px !important;
+            padding-bottom: 60px !important;
+            min-height: 100vh !important;
+            display: flex !important;
+            align-items: center !important;
           }
 
           .hero-grid {
             gap: 30px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            min-height: auto !important;
+          }
+          
+          .profile-container {
+            order: -1 !important;
+            width: 220px !important;
+            height: 220px !important;
+            margin: 0 auto 2rem auto !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+          }
+          
+          .profile-container > div:first-child {
+            width: 220px !important;
+            height: 220px !important;
+          }
+          
+          .profile-container > div:last-child {
+            width: 200px !important;
+            height: 200px !important;
+          }
+          
+          .profile-container > div:last-child > div {
+            width: 180px !important;
+            height: 180px !important;
+          }
+          
+          .hero-buttons {
+            flex-direction: column !important;
+            align-items: center !important;
+            width: 100% !important;
+            gap: 1rem !important;
+          }
+          
+          .hero-buttons .btn {
+            width: 100% !important;
+            max-width: 280px !important;
+            margin: 0 !important;
+          }
+          
+          .skill-tags-container {
+            margin-bottom: 1.5rem !important;
+            justify-content: center !important;
+            text-align: center !important;
+          }
+          
+          .skill-tag {
+            margin: 0 4px 8px 0 !important;
+            font-size: 0.8rem !important;
+            padding: 8px 12px !important;
+          }
+          
+          .hero p {
+            text-align: center !important;
+            max-width: 100% !important;
+            margin: 0 auto 2rem auto !important;
+          }
+          
+          .social-links {
+            justify-content: center !important;
+            margin-top: 1rem !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .hero {
+            padding-top: 80px !important;
+            padding-bottom: 40px !important;
+            min-height: 100vh !important;
+          }
+          
+          .profile-container {
+            width: 180px !important;
+            height: 180px !important;
+            margin: 0 auto 1.5rem auto !important;
+          }
+          
+          .profile-container > div:first-child {
+            width: 180px !important;
+            height: 180px !important;
+          }
+          
+          .profile-container > div:last-child {
+            width: 160px !important;
+            height: 160px !important;
+          }
+          
+          .profile-container > div:last-child > div {
+            width: 140px !important;
+            height: 140px !important;
+          }
+          
+          .hero-buttons .btn {
+            max-width: 250px !important;
+            font-size: 0.9rem !important;
+            padding: 12px 20px !important;
+          }
+          
+          .skill-tag {
+            font-size: 0.75rem !important;
+            padding: 6px 10px !important;
+          }
+          
+          .social-links {
+            gap: 12px !important;
+            margin-top: 1.5rem !important;
+          }
+          
+          .social-links a {
+            padding: 10px !important;
+          }
+          
+          .hero h1 {
+            font-size: clamp(2.2rem, 8vw, 2.8rem) !important;
+            line-height: 1.1 !important;
+            margin-bottom: 1rem !important;
+          }
+          
+          .hero p {
+            font-size: 1rem !important;
+            line-height: 1.6 !important;
+            padding: 0 1rem !important;
           }
         }
       `}</style>

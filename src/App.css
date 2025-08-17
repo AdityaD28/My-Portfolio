@@ -22,11 +22,13 @@ body {
   background-attachment: fixed;
   color: #ffffff;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .App {
   position: relative;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Glass Morphism Base */
@@ -378,6 +380,24 @@ p {
   transform: translateY(-2px);
 }
 
+/* Mobile specific improvements */
+@media (max-width: 768px) {
+  .skill-tag {
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+    margin: 2px !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .skill-tag {
+    font-size: 0.75rem !important;
+    padding: 5px 10px !important;
+    margin: 2px !important;
+  }
+}
+
 /* Status Badges */
 .status-badge {
   display: inline-flex;
@@ -611,7 +631,7 @@ canvas {
   }
   
   .section {
-    padding: 80px 0;
+    padding: 60px 0 40px 0;
   }
   
   .grid-2, .grid-3 {
@@ -625,493 +645,281 @@ canvas {
   }
   
   h1 {
-    font-size: 2.5rem;
+    font-size: clamp(2.5rem, 8vw, 3rem) !important;
+    line-height: 1.1 !important;
+    margin-bottom: 1rem !important;
   }
   
   h2 {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 5vw, 2.2rem) !important;
+    margin-bottom: 1rem !important;
   }
   
   .subtitle {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 3vw, 1.2rem) !important;
+    margin-bottom: 1.5rem !important;
   }
   
   .btn {
-    padding: 12px 20px;
-    font-size: 0.9rem;
+    padding: 14px 24px !important;
+    font-size: 0.95rem !important;
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
   }
   
   .glass-card {
-    padding: 20px !important;
+    padding: 24px !important;
+    margin-bottom: 1rem !important;
   }
   
   .section-title {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem !important;
+    text-align: center !important;
+  }
+  
+  /* Hero specific mobile styles */
+  .hero {
+    min-height: 100vh !important;
+    padding-top: 80px !important;
+    padding-bottom: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .hero-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 2rem !important;
+    min-height: auto !important;
+    width: 100% !important;
+  }
+  
+  .hero p {
+    max-width: 100% !important;
+    margin-bottom: 2rem !important;
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+    padding: 0 1rem !important;
+  }
+  
+  .hero .btn {
+    width: 100% !important;
+    max-width: 280px !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Profile image mobile optimization */
+  .hero .profile-container {
+    width: 200px !important;
+    height: 200px !important;
+    margin: 0 auto 2rem auto !important;
+    order: -1 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 50% !important;
+    overflow: visible !important;
+  }
+  
+  .hero .profile-container > div {
+    border-radius: 50% !important;
+    overflow: hidden !important;
+  }
+  
+  .hero .profile-container img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    border-radius: 50% !important;
+    display: block !important;
+  }
+  
+  /* Skill tags mobile */
+  .skill-tag {
+    padding: 8px 16px !important;
+    font-size: 0.8rem !important;
+    margin-bottom: 0.5rem !important;
+    display: inline-block !important;
+    text-align: center !important;
+  }
+  
+  /* Social links mobile */
+  .hero .social-links {
+    justify-content: center !important;
+    margin-top: 1.5rem !important;
   }
 }
 
 @media (max-width: 480px) {
   .container {
-    padding: 0 0.75rem;
+    padding: 0 1rem;
   }
   
   .section {
-    padding: 60px 0;
+    padding: 40px 0 30px 0;
   }
   
   h1 {
-    font-size: 2rem;
+    font-size: clamp(2rem, 8vw, 2.5rem) !important;
+    line-height: 1.1 !important;
   }
   
   h2 {
-    font-size: 1.75rem;
+    font-size: clamp(1.5rem, 6vw, 1.8rem) !important;
   }
   
   .subtitle {
-    font-size: 1rem;
+    font-size: clamp(0.95rem, 4vw, 1.1rem) !important;
+  }
+  
+  .hero p {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1.5rem !important;
   }
   
   .skill-tag {
-    padding: 6px 12px;
-    font-size: 0.75rem;
+    padding: 6px 12px !important;
+    font-size: 0.75rem !important;
+    margin: 0 4px 8px 0 !important;
   }
   
   .btn {
-    padding: 10px 16px;
-    font-size: 0.85rem;
+    padding: 12px 20px !important;
+    font-size: 0.9rem !important;
+    width: 100% !important;
+    max-width: 250px !important;
   }
   
   .glass-card {
-    padding: 16px !important;
-    border-radius: 16px;
+    padding: 20px !important;
+    border-radius: 16px !important;
   }
-}
-
-/* Profile Picture Scroll Fix */
-.hero .profile-container,
-.hero .profile-image {
-  transform: translate3d(0, 0, 0) !important;
-  will-change: auto !important;
-  position: relative !important;
-  transition: none !important;
-  animation: none !important;
-}
-
-/* Ultimate Profile Picture Scroll Fix - NUCLEAR OPTION */
-.hero .profile-container,
-.hero .profile-image,
-.hero .static-profile,
-.hero .profile-container *,
-.hero .profile-image *,
-.hero .static-profile * {
-  transform: translate3d(0, 0, 0) !important;
-  -webkit-transform: translate3d(0, 0, 0) !important;
-  -moz-transform: translate3d(0, 0, 0) !important;
-  -ms-transform: translate3d(0, 0, 0) !important;
-  will-change: auto !important;
-  animation: none !important;
-  transition: none !important;
-  position: relative !important;
-  backface-visibility: hidden !important;
-  -webkit-backface-visibility: hidden !important;
-  -moz-backface-visibility: hidden !important;
-  -ms-backface-visibility: hidden !important;
-}
-
-/* NUCLEAR OPTION: Disable ALL transforms and animations on profile */
-.hero .static-profile {
-  transform: translate3d(0, 0, 0) !important;
-  -webkit-transform: translate3d(0, 0, 0) !important;
-  -moz-transform: translate3d(0, 0, 0) !important;
-  -ms-transform: translate3d(0, 0, 0) !important;
-  animation: none !important;
-  transition: none !important;
-  will-change: auto !important;
-  contain: strict !important;
-  isolation: isolate !important;
-  pointer-events: none !important; /* Disable any interactions */
-}
-
-/* Prevent any scroll-based transforms - ULTIMATE LOCKDOWN */
-.hero .profile-container {
-  contain: layout style paint size !important;
-  isolation: isolate !important;
-  overflow: visible !important;
-}
-
-/* Isolate profile from parent transforms - MAXIMUM STRENGTH */
-.hero .profile-image {
-  isolation: isolate !important;
-  contain: layout style paint size !important;
-  overflow: visible !important;
-}
-
-/* Override any framer-motion transforms - COMPLETE OVERRIDE */
-.hero [data-framer-name*="profile"],
-.hero [class*="profile"],
-.hero .static-profile {
-  transform: translate3d(0, 0, 0) !important;
-  animation: none !important;
-  transition: none !important;
-  will-change: auto !important;
-}
-
-/* Disable ALL motion on profile elements */
-.hero .static-profile * {
-  animation: none !important;
-  transition: none !important;
-  transform: none !important;
-}
-
-/* NUCLEAR OPTION - COMPLETELY LOCK PROFILE PICTURE */
-.no-motion,
-.no-motion *,
-.static-profile,
-.static-profile *,
-.hero .no-motion,
-.hero .no-motion *,
-.hero .static-profile,
-.hero .static-profile * {
-  transform: translate3d(0, 0, 0) !important;
-  -webkit-transform: translate3d(0, 0, 0) !important;
-  -moz-transform: translate3d(0, 0, 0) !important;
-  -ms-transform: translate3d(0, 0, 0) !important;
-  -o-transform: translate3d(0, 0, 0) !important;
-  animation: none !important;
-  -webkit-animation: none !important;
-  -moz-animation: none !important;
-  -ms-animation: none !important;
-  -o-animation: none !important;
-  transition: none !important;
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -ms-transition: none !important;
-  -o-transition: none !important;
-  will-change: auto !important;
-  contain: strict !important;
-  isolation: isolate !important;
-  backface-visibility: hidden !important;
-  -webkit-backface-visibility: hidden !important;
-  -moz-backface-visibility: hidden !important;
-  -ms-backface-visibility: hidden !important;
-  pointer-events: none !important;
-}
-
-/* Disable ALL CSS animations globally for profile */
-.hero .profile-container,
-.hero .profile-image,
-.hero .static-profile,
-.hero .no-motion {
-  animation-name: none !important;
-  animation-duration: 0s !important;
-  animation-timing-function: linear !important;
-  animation-delay: 0s !important;
-  animation-iteration-count: 1 !important;
-  animation-direction: normal !important;
-  animation-fill-mode: none !important;
-  animation-play-state: paused !important;
-  transition-property: none !important;
-  transition-duration: 0s !important;
-  transition-timing-function: linear !important;
-  transition-delay: 0s !important;
-}
-
-/* Override any external motion libraries */
-.hero .no-motion[style*="transform"],
-.hero .static-profile[style*="transform"] {
-  transform: translate3d(0, 0, 0) !important;
-}
-
-/* ULTIMATE NUCLEAR OPTION - KILL ALL MOTION COMPLETELY */
-.kill-all-motion,
-.kill-all-motion *,
-.hero .kill-all-motion,
-.hero .kill-all-motion * {
-  transform: none !important;
-  -webkit-transform: none !important;
-  -moz-transform: none !important;
-  -ms-transform: none !important;
-  -o-transform: none !important;
-  animation: none !important;
-  -webkit-animation: none !important;
-  -moz-animation: none !important;
-  -ms-animation: none !important;
-  -o-animation: none !important;
-  transition: none !important;
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -ms-transition: none !important;
-  -o-transition: none !important;
-  will-change: auto !important;
-  position: relative !important;
-  left: auto !important;
-  top: auto !important;
-  right: auto !important;
-  bottom: auto !important;
-  margin: 0 auto !important;
-  float: none !important;
-  backface-visibility: hidden !important;
-  -webkit-backface-visibility: hidden !important;
-  -moz-backface-visibility: hidden !important;
-  -ms-backface-visibility: hidden !important;
-  perspective: none !important;
-  -webkit-perspective: none !important;
-  -moz-perspective: none !important;
-  -ms-perspective: none !important;
-  transform-style: flat !important;
-  -webkit-transform-style: flat !important;
-  -moz-transform-style: flat !important;
-  -ms-transform-style: flat !important;
-  filter: none !important;
-  -webkit-filter: none !important;
-  -moz-filter: none !important;
-  -ms-filter: none !important;
-}
-
-/* Override ANY possible motion effects */
-.kill-all-motion {
-  animation-name: none !important;
-  animation-duration: 0s !important;
-  animation-timing-function: linear !important;
-  animation-delay: 0s !important;
-  animation-iteration-count: 1 !important;
-  animation-direction: normal !important;
-  animation-fill-mode: none !important;
-  animation-play-state: paused !important;
-  transition-property: none !important;
-  transition-duration: 0s !important;
-  transition-timing-function: linear !important;
-  transition-delay: 0s !important;
-}
-
-/* Disable ANY external library transforms */
-.hero .kill-all-motion[style*="transform"],
-.hero .kill-all-motion[data-framer-motion],
-.hero .kill-all-motion[data-motion] {
-  transform: none !important;
-}
-
-/* ULTIMATE ABSOLUTE LOCK - FIXED POSITION PROFILE PICTURE */
-.absolute-lock,
-.hero .absolute-lock,
-.absolute-lock *,
-.hero .absolute-lock * {
-  position: fixed !important;
-  top: 50vh !important;
-  right: 15% !important;
-  margin-top: -130px !important;
-  margin-right: 0 !important;
-  margin-left: 0 !important;
-  margin-bottom: 0 !important;
-  transform: translate3d(0, 0, 0) !important;
-  -webkit-transform: translate3d(0, 0, 0) !important;
-  -moz-transform: translate3d(0, 0, 0) !important;
-  -ms-transform: translate3d(0, 0, 0) !important;
-  -o-transform: translate3d(0, 0, 0) !important;
-  animation: none !important;
-  transition: none !important;
-  will-change: auto !important;
-  contain: strict !important;
-  isolation: isolate !important;
-  pointer-events: none !important;
-  z-index: 999 !important;
-}
-
-/* Override ANY possible positioning changes */
-.absolute-lock {
-  left: auto !important;
-  bottom: auto !important;
-  float: none !important;
-  clear: none !important;
-  display: flex !important;
-  flex-shrink: 0 !important;
-  flex-grow: 0 !important;
-  flex-basis: auto !important;
-}
-
-/* Responsive positioning adjustments */
-@media (max-width: 1200px) {
-  .absolute-lock {
-    right: 10% !important;
+  
+  /* Hero mobile small screens */
+  .hero {
+    padding-top: 60px !important;
+    padding-bottom: 30px !important;
+    min-height: 100vh !important;
   }
-}
-
-@media (max-width: 1024px) {
-  .absolute-lock {
-    position: relative !important;
-    top: auto !important;
-    right: auto !important;
-    margin-top: 0 !important;
+  
+  .hero-grid {
+    gap: 1.5rem !important;
+    padding: 0 0.5rem !important;
+  }
+  
+  .hero .profile-container {
+    width: 160px !important;
+    height: 160px !important;
+    margin: 0 auto 1.5rem auto !important;
+  }
+  
+  .hero .profile-container > div {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  
+  .hero h1 {
+    font-size: clamp(2rem, 8vw, 2.5rem) !important;
+    line-height: 1.1 !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .hero p {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    padding: 0 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .hero .btn {
+    max-width: 240px !important;
+    font-size: 0.85rem !important;
+    padding: 10px 18px !important;
+  }
+  
+  /* Timeline mobile fixes */
+  #timeline .timeline-container {
+    padding: 0 !important;
     margin: 0 auto !important;
-    z-index: 1 !important;
+    max-width: 100% !important;
   }
-}
-
-/* Force exact positioning on all viewport sizes */
-.hero .absolute-lock[style*="position"] {
-  position: fixed !important;
-  top: 50vh !important;
-  right: 15% !important;
-}
-
-@media (min-width: 1025px) {
-  .hero .absolute-lock {
-    position: fixed !important;
-    top: 50vh !important;
-    right: 15% !important;
-    margin-top: -130px !important;
-    z-index: 999 !important;
+  
+  #timeline .timeline-card {
+    width: 95% !important;
+    max-width: 95% !important;
+    margin: 0 auto 2rem auto !important;
+    left: 0 !important;
+    transform: none !important;
+    position: relative !important;
   }
-}
-
-/* ULTRA-AGGRESSIVE INDEPENDENT PROFILE PICTURE LOCK */
-.independent-profile,
-.hero .independent-profile,
-.independent-profile *,
-.hero .independent-profile * {
-  position: fixed !important;
-  top: 50vh !important;
-  right: 15% !important;
-  margin-top: -130px !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  margin-bottom: 0 !important;
-  left: auto !important;
-  bottom: auto !important;
-  transform: translate3d(0, 0, 0) !important;
-  -webkit-transform: translate3d(0, 0, 0) !important;
-  -moz-transform: translate3d(0, 0, 0) !important;
-  -ms-transform: translate3d(0, 0, 0) !important;
-  -o-transform: translate3d(0, 0, 0) !important;
-  animation: none !important;
-  -webkit-animation: none !important;
-  -moz-animation: none !important;
-  -ms-animation: none !important;
-  -o-animation: none !important;
-  transition: none !important;
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -ms-transition: none !important;
-  -o-transition: none !important;
-  will-change: auto !important;
-  contain: strict !important;
-  isolation: isolate !important;
-  pointer-events: none !important;
-  z-index: 1000 !important;
-  float: none !important;
-  clear: none !important;
-  display: flex !important;
-  width: 260px !important;
-  height: 260px !important;
-  flex-shrink: 0 !important;
-  flex-grow: 0 !important;
-  flex-basis: auto !important;
-  overflow: hidden !important;
-}
-
-/* DISABLE ALL POSSIBLE LAYOUT INFLUENCES */
-.independent-profile {
-  grid-column: unset !important;
-  grid-row: unset !important;
-  grid-area: unset !important;
-  align-self: auto !important;
-  justify-self: auto !important;
-  order: 0 !important;
-  flex: none !important;
-}
-
-/* OVERRIDE ANY EXTERNAL INFLUENCES */
-body .independent-profile,
-html .independent-profile,
-* .independent-profile {
-  position: fixed !important;
-  top: 50vh !important;
-  right: 15% !important;
-  margin-top: -130px !important;
-  transform: translate3d(0, 0, 0) !important;
-}
-
-/* RESPONSIVE INDEPENDENCE */
-@media (max-width: 1200px) {
-  .independent-profile {
-    right: 10% !important;
+  .hero {
+    padding-top: 70px !important;
+    padding-bottom: 30px !important;
   }
-}
-
-@media (max-width: 1024px) {
-  .independent-profile {
+  
+  .hero .profile-container {
+    width: 160px !important;
+    height: 160px !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .hero .profile-container > div {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  
+  /* Navigation mobile */
+  .nav-mobile-toggle {
+    display: block !important;
+  }
+  
+  .nav-desktop {
     display: none !important;
   }
-}
-
-/* FORCE EXACT COORDINATES */
-.hero .independent-profile[style*="position"] {
-  position: fixed !important;
-  top: 50vh !important;
-  right: 15% !important;
-  margin-top: -130px !important;
-}
-
-/* NUCLEAR OPTION: OVERRIDE EVERYTHING */
-.independent-profile {
-  position: fixed !important;
-  top: 50vh !important;
-  right: 15% !important;
-  margin-top: -130px !important;
-  transform: translate3d(0, 0, 0) !important;
-  z-index: 1000 !important;
-}
-
-/* CLEAN FIXED PROFILE PICTURE - FINAL SOLUTION */
-.fixed-profile-picture {
-  position: fixed !important;
-  top: 50vh !important;
-  right: 15% !important;
-  transform: translateY(-50%) !important;
-  width: 260px !important;
-  height: 260px !important;
-  z-index: 1000 !important;
-  pointer-events: none !important;
   
-  /* Disable all animations and transitions */
-  animation: none !important;
-  transition: none !important;
-  will-change: auto !important;
+  /* Prevent horizontal scroll */
+  body, html {
+    overflow-x: hidden !important;
+  }
   
-  /* Ensure it stays in place */
-  margin: 0 !important;
-  left: auto !important;
-  bottom: auto !important;
+  /* Touch optimization */
+  .btn, .glass-card, .skill-tag {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
   
-  /* Hardware acceleration */
-  -webkit-transform: translateY(-50%) !important;
-  -moz-transform: translateY(-50%) !important;
-  -ms-transform: translateY(-50%) !important;
-  -o-transform: translateY(-50%) !important;
+  /* Improve text readability on mobile */
+  .subtitle, p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
   
-  /* Isolation */
-  isolation: isolate !important;
-  contain: strict !important;
-}
-
-/* Responsive positioning */
-@media (max-width: 1200px) {
-  .fixed-profile-picture {
-    right: 10% !important;
+  /* Ensure images don't overflow */
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
 
-@media (max-width: 1024px) {
-  .fixed-profile-picture {
-    display: none !important;
-  }
+/* Profile Picture Optimization */
+.hero .profile-container {
+  position: relative !important;
+  overflow: visible !important;
 }
 
-/* Override any external interference */
-body .fixed-profile-picture,
-html .fixed-profile-picture,
-* .fixed-profile-picture {
-  position: fixed !important;
-  top: 50vh !important;
-  transform: translateY(-50%) !important;
+.hero .profile-container img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  border-radius: 50% !important;
+  display: block !important;
 }
