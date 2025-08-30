@@ -47,57 +47,83 @@ const Projects: React.FC = () => {
 
   const projects: Project[] = [
     {
-      id: 'greenguardian',
-      title: 'GreenGuardian',
-      tagline: 'AI-Powered Plant Disease Detection',
-      challenge: 'Farmers struggle to identify plant diseases early, leading to significant crop losses and reduced agricultural productivity.',
-      solution: 'Developed a comprehensive web application using React.js and TensorFlow.js that enables real-time plant disease detection through image analysis. The system provides instant diagnosis with treatment recommendations, helping farmers make informed decisions quickly.',
-      techStack: ['React', 'TensorFlow', 'Python', 'Computer Vision', 'Machine Learning'],
-      github: 'https://github.com/AdityaD28/GreenGuardian',
-      image: '/api/placeholder/600/400',
-      category: 'ai',
-      featured: true,
-      achievements: [
-        'Real-time disease detection with 95% accuracy',
-        'Comprehensive treatment recommendation system',
-        'User-friendly interface designed for farmers'
-      ],
-      metrics: [
-        { label: 'Accuracy', value: '95%' },
-        { label: 'Detection Time', value: '<2s' },
-        { label: 'Diseases Supported', value: '20+' }
-      ],
-      impact: 'Helping farmers reduce crop losses by up to 40% through early disease detection'
-    },
-    {
       id: 'ai-portfolio',
       title: 'AI-Powered Portfolio Website',
-      tagline: 'Intelligent Interactive Portfolio with AI Chatbot',
-      challenge: 'Traditional portfolios lack interactivity and fail to provide personalized information to visitors.',
-      solution: 'Created an innovative portfolio website featuring an AI-powered chatbot that can answer questions about projects, skills, and experience in real-time. Built with modern web technologies and integrated machine learning capabilities.',
-      techStack: ['React', 'TypeScript', 'AI/ML', 'Framer Motion', 'Three.js'],
+      tagline: 'Interactive Portfolio with AI Chatbot Integration',
+      challenge: 'Traditional portfolios lack interactivity and fail to provide instant, personalized information to recruiters.',
+      solution: 'Developed a personal portfolio platform with AI chatbot integration, allowing recruiters to instantly query project insights. Optimized performance using React.js + Tailwind CSS + Node.js, delivering 40% faster load times and ensuring 100% mobile responsiveness.',
+      techStack: ['React.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'AI/ML', 'Framer Motion'],
       github: 'https://github.com/AdityaD28/My-Portfolio',
       image: '/api/placeholder/600/400',
       category: 'web',
       featured: true,
       achievements: [
-        'Interactive AI chatbot for visitor engagement',
-        'Modern glassmorphism design with smooth animations',
-        'Responsive design across all devices'
+        'Showcased 15+ projects effectively',
+        '2x increase in recruiter engagement',
+        '40% faster load times',
+        '100% mobile responsiveness'
       ],
       metrics: [
-        { label: 'Performance', value: '98/100' },
-        { label: 'Accessibility', value: '100/100' },
-        { label: 'Load Time', value: '<1s' }
+        { label: 'Load Time', value: '<1s' },
+        { label: 'Mobile Score', value: '100%' },
+        { label: 'Engagement', value: '+200%' }
       ],
       impact: 'Revolutionizing how developers showcase their work with intelligent interactivity'
     },
     {
-      id: 'hand-gesture',
-      title: 'Real-time Hand Gesture Recognition',
-      tagline: 'Computer Vision-Based Gesture Control System',
-      challenge: 'Developing accurate real-time gesture recognition for intuitive human-computer interaction.',
-      solution: 'Engineered a sophisticated computer vision system using OpenCV and deep learning techniques to recognize and interpret hand gestures in real-time, enabling touchless control interfaces.',
+      id: 'ecommerce-website',
+      title: 'E-commerce Website',
+      tagline: 'Full-Stack E-commerce Solution',
+      challenge: 'Building a scalable e-commerce platform that can handle high traffic and provide seamless shopping experiences.',
+      solution: 'Engineered a full-stack e-commerce solution supporting 500+ SKUs, featuring secure checkout, user authentication, and order history. Scaled the system to handle 100+ daily active users without downtime and improved conversion rates by 20% through optimization.',
+      techStack: ['React.js', 'Node.js', 'Express.js', 'MySQL', 'Payment Gateway', 'Authentication'],
+      github: 'https://github.com/AdityaD28/E-commerce-Website',
+      image: '/api/placeholder/600/400',
+      category: 'web',
+      featured: true,
+      achievements: [
+        'Supports 500+ product SKUs',
+        'Handles 100+ daily active users',
+        '20% improvement in conversion rates',
+        '40% faster page load times'
+      ],
+      metrics: [
+        { label: 'SKUs Supported', value: '500+' },
+        { label: 'Daily Users', value: '100+' },
+        { label: 'Conversion Rate', value: '+20%' }
+      ],
+      impact: 'Enabling small businesses to establish robust online presence with enterprise-grade features'
+    },
+    {
+      id: 'employee-management-system',
+      title: 'Employee Management System',
+      tagline: 'Enterprise-Grade EMS with Payroll Automation',
+      challenge: 'Organizations struggle with manual employee management and payroll processes, leading to errors and inefficiencies.',
+      solution: 'Designed and deployed an employee management tool to handle 1000+ employee records with payroll automation and task assignments. Automated payroll processes reducing administrative overhead by 60% and increasing accuracy by 25% through structured SQL queries.',
+      techStack: ['Web Technologies', 'SQL', 'Database Design', 'Authentication', 'Role-Based Access'],
+      github: 'https://github.com/AdityaD28/Employee-Management-System',
+      image: '/api/placeholder/600/400',
+      category: 'web',
+      featured: false,
+      achievements: [
+        'Manages 1000+ employee records',
+        '60% reduction in administrative overhead',
+        '25% increase in payroll accuracy',
+        'Role-based access control system'
+      ],
+      metrics: [
+        { label: 'Employee Records', value: '1000+' },
+        { label: 'Admin Efficiency', value: '+60%' },
+        { label: 'Payroll Accuracy', value: '+25%' }
+      ],
+      impact: 'Streamlining HR operations for large organizations with automated workflows'
+    },
+    {
+      id: 'hand-gesture-recognition',
+      title: 'Hand Gesture Recognition System',
+      tagline: 'Real-time AI-Powered Gesture Control',
+      challenge: 'Creating touchless interfaces for healthcare and accessibility applications using computer vision and machine learning.',
+      solution: 'Developed an advanced hand gesture recognition system using OpenCV, MediaPipe, and deep learning for real-time gesture detection and control. Achieved high accuracy in various lighting conditions with 30+ FPS processing speed.',
       techStack: ['Python', 'OpenCV', 'TensorFlow', 'Deep Learning', 'MediaPipe'],
       github: 'https://github.com/AdityaD28/SCT_ML_04',
       image: '/api/placeholder/600/400',
@@ -106,7 +132,8 @@ const Projects: React.FC = () => {
       achievements: [
         'Real-time gesture processing at 30+ FPS',
         'Support for 10+ gesture commands',
-        'High accuracy in various lighting conditions'
+        'High accuracy in various lighting conditions',
+        'Touchless interface implementation'
       ],
       metrics: [
         { label: 'Accuracy', value: '92%' },
@@ -116,11 +143,11 @@ const Projects: React.FC = () => {
       impact: 'Enabling touchless interfaces for healthcare and accessibility applications'
     },
     {
-      id: 'dogs-vs-cats',
-      title: 'Dogs Vs Cats Classification',
-      tagline: 'Deep Learning Image Classification System',
+      id: 'dogs-vs-cats-classification',
+      title: 'Dogs vs Cats Image Classification',
+      tagline: 'Deep Learning Computer Vision Model',
       challenge: 'Accurately distinguishing between dog and cat images using machine learning techniques for automated image classification.',
-      solution: 'Developed a convolutional neural network (CNN) model using deep learning frameworks to classify images of dogs and cats with high accuracy. Implemented data preprocessing, model training, and evaluation techniques.',
+      solution: 'Developed a convolutional neural network (CNN) model using deep learning frameworks to classify images of dogs and cats with high accuracy. Implemented comprehensive data preprocessing, model training, and evaluation techniques.',
       techStack: ['Python', 'TensorFlow', 'Deep Learning', 'Computer Vision', 'CNN'],
       github: 'https://github.com/AdityaD28/SCT_ML_03',
       image: '/api/placeholder/600/400',
@@ -129,7 +156,8 @@ const Projects: React.FC = () => {
       achievements: [
         'High accuracy image classification model',
         'Efficient CNN architecture implementation',
-        'Comprehensive data preprocessing pipeline'
+        'Comprehensive data preprocessing pipeline',
+        'Robust model evaluation metrics'
       ],
       metrics: [
         { label: 'Accuracy', value: '94%' },
@@ -140,10 +168,10 @@ const Projects: React.FC = () => {
     },
     {
       id: 'ai-career-recommender',
-      title: 'AI Career Recommender',
-      tagline: 'Intelligent Career Path Recommendation System',
+      title: 'AI Career Recommender System',
+      tagline: 'Intelligent Career Path Recommendation Engine',
       challenge: 'Helping individuals make informed career decisions by analyzing their skills, interests, and market trends to provide personalized career recommendations.',
-      solution: 'Built an AI-powered recommendation system that analyzes user profiles, skills, and preferences to suggest optimal career paths. Incorporates machine learning algorithms to provide data-driven career guidance.',
+      solution: 'Built an AI-powered recommendation system that analyzes user profiles, skills, and preferences to suggest optimal career paths. Incorporates machine learning algorithms to provide data-driven career guidance with market trend integration.',
       techStack: ['Python', 'Machine Learning', 'AI/ML', 'Data Analysis', 'Recommendation Systems'],
       github: 'https://github.com/AdityaD28/AI-Career-Recommender',
       image: '/api/placeholder/600/400',
@@ -152,7 +180,8 @@ const Projects: React.FC = () => {
       achievements: [
         'Personalized career path recommendations',
         'Skills gap analysis and improvement suggestions',
-        'Market trend integration for relevant advice'
+        'Market trend integration for relevant advice',
+        'User-friendly interface design'
       ],
       metrics: [
         { label: 'Accuracy', value: '88%' },
@@ -659,6 +688,78 @@ const Projects: React.FC = () => {
               <ProjectCard key={project.id} project={project} index={index} />
             ))}
           </div>
+
+          {/* View More Projects Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+            style={{
+              marginTop: '60px',
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '24px'
+            }}
+          >
+            <div style={{
+              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04))',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255, 255, 255, 0.12)',
+              borderRadius: '20px',
+              padding: '40px',
+              maxWidth: '600px',
+              width: '100%'
+            }}>
+              <h3 style={{
+                fontSize: '1.8rem',
+                fontWeight: '700',
+                marginBottom: '16px',
+                background: 'linear-gradient(135deg, #667eea, #764ba2)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent'
+              }}>
+                Explore More Projects
+              </h3>
+              <p style={{
+                fontSize: '1.1rem',
+                lineHeight: '1.6',
+                color: '#94a3b8',
+                marginBottom: '32px'
+              }}>
+                Check out my complete portfolio on GitHub to see additional projects, 
+                code samples, and contributions to open-source initiatives.
+              </p>
+              <motion.a
+                href="https://github.com/AdityaD28"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  padding: '14px 32px',
+                  background: 'linear-gradient(135deg, #667eea, #764ba2)',
+                  borderRadius: '12px',
+                  color: 'white',
+                  textDecoration: 'none',
+                  fontSize: '1.1rem',
+                  fontWeight: '600',
+                  transition: 'all 0.3s ease',
+                  boxShadow: '0 8px 32px rgba(102, 126, 234, 0.3)'
+                }}
+              >
+                <Github size={20} />
+                View All Projects on GitHub
+                <ChevronRight size={18} />
+              </motion.a>
+            </div>
+          </motion.div>
         </div>
       </section>
 

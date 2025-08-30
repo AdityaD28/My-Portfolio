@@ -72,9 +72,9 @@ const Hero: React.FC = () => {
           <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2 }} style={{ textAlign: 'left' }}>
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} style={{ marginBottom: '24px' }}>
               <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '32px', justifyContent: 'center' }} className="skill-tags-container">
-                <span className="skill-tag"><Sparkles size={16} style={{ marginRight: '8px' }} />Full-Stack Developer</span>
-                <span className="skill-tag">AI/ML Enthusiast</span>
-                <span className="skill-tag">Open Source</span>
+                <span className="skill-tag"><Sparkles size={16} style={{ marginRight: '8px' }} />Tech Lead</span>
+                <span className="skill-tag">Full-Stack Developer</span>
+                <span className="skill-tag">System Optimizer</span>
               </div>
             </motion.div>
 
@@ -88,9 +88,10 @@ const Hero: React.FC = () => {
             </motion.div>
 
             <motion.p ref={subtitleRef} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.5 }} style={{ fontSize: '1.1rem', lineHeight: '1.7', color: '#ced4da', marginBottom: '40px', maxWidth: '500px' }}>
-              Final-year Computer Science student passionate about building intelligent and intuitive digital experiences at
-              the intersection of <span style={{ color: '#667eea', fontWeight: '600' }}>AI/ML</span>, and exploring <span style={{ color: '#43e97b', fontWeight: '600' }}>Full-Stack Development</span>. Experienced in developing scalable web apps
-              powered by <span style={{ color: '#764ba2', fontWeight: '600' }}>machine learning models</span> with a strong focus on usability, performance, and real-world impact.
+              Full-stack software developer currently serving as a Tech Lead, focused on building efficient, user-centric applications with a strong foundation in 
+              <span style={{ color: '#667eea', fontWeight: '600' }}> software design</span> and <span style={{ color: '#43e97b', fontWeight: '600' }}>system optimization</span>. 
+              Skilled at delivering reliable, high-performance solutions that enhance <span style={{ color: '#764ba2', fontWeight: '600' }}>usability and scalability</span>, 
+              with proven experience leading teams to measurable improvements.
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} style={{ display: 'flex', gap: '16px', marginBottom: '40px', flexWrap: 'wrap', justifyContent: 'center' }} className="hero-buttons">

@@ -19,39 +19,57 @@ interface TimelineItem {
 const Timeline: React.FC = () => {
   const timelineItems: TimelineItem[] = [
     {
-      id: 'skillcraft',
+      id: 'current-role',
       type: 'experience',
-      title: 'Machine Learning Intern',
-      organization: 'SkillCraft Technology',
-      location: 'Remote',
-      period: 'June 2024 - August 2024',
-      description: 'Specialized in developing AI/ML solutions and computer vision applications',
+      title: 'Project Engineer (Academic Role) | Tech Lead',
+      organization: 'Educational Technology Initiative',
+      location: 'Bangalore, India',
+      period: 'Jul 2025 – Present',
+      description: 'Leading development of smart learning platform for rural education',
       achievements: [
-        'Developed predictive models for house pricing and customer segmentation achieving 92% accuracy',
-        'Engineered a real-time hand gesture recognition system using computer vision and deep learning',
-        'Collaborated with cross-functional teams to implement scalable ML solutions for production',
-        'Optimized model performance leading to 35% faster inference times and reduced computational costs',
+        'Architected and deployed smart learning platform with 5+ interactive modules for 200+ rural students',
+        'Engineered offline-first PWA with React.js + Node.js + PostgreSQL, reducing internet dependency by 70%',
+        'Directed 3-member Agile team, improving sprint completion rates by 80% and feature releases by 25%',
+        'Optimized backend performance, reducing server response times by 30% and production bugs by 40%',
       ],
       color: '#6366f1',
-      status: 'Completed',
-      logo: '/skillcraft.jpeg'
+      status: 'Current',
+      logo: '/presidency.jpg'
     },
     {
       id: 'presidency',
       type: 'education',
-      title: 'B.E. Computer Science & Engineering',
+      title: 'Bachelor\'s Degree in Computer Science and Engineering',
       organization: 'Presidency University',
       location: 'Bangalore, Karnataka, India',
-      period: '2022 - 2026 (Expected)',
-      description: 'Specialization: Internet of Things',
+      period: 'Nov 2022 - Jul 2026',
+      description: 'Specialization: Full-Stack Development and System Design',
       achievements: [
-        'CGPA: 6.82/10 - Consistent academic excellence with focus on AI/ML technologies',
-        'Core Subjects: Machine Learning, Deep Learning, Computer Vision, Data Science, Algorithms',
-        'Technical Projects: Developed 15+ AI/ML projects including computer vision applications',
-        'Research: Working on thesis project involving computer vision for healthcare applications'
+        'Focused on web application development, API integration, and cloud-ready architectures',
+        'Core Subjects: Data Structures, Algorithms, Database Systems, Software Engineering, System Design',
+        'Technical Projects: Developed 15+ full-stack applications including e-commerce and management systems',
+        'Leadership: Serving as Tech Lead while maintaining academic excellence'
       ],
       color: '#22c55e',
       status: 'In Progress',
+      logo: '/presidency.jpg'
+    },
+    {
+      id: 'pre-university',
+      type: 'education',
+      title: 'Pre-University | PCMB',
+      organization: 'Prarthana PU Science College',
+      location: 'Bagalkot, Karnataka, India',
+      period: 'Jun 2020 - Apr 2022',
+      description: 'Foundation in Physics, Chemistry, Mathematics, and Biology',
+      achievements: [
+        'Strong foundation in mathematics and logical reasoning',
+        'Developed problem-solving skills that translate well to programming',
+        'Participated in science projects and technical competitions',
+        'Maintained consistent academic performance'
+      ],
+      color: '#8b5cf6',
+      status: 'Completed',
       logo: '/presidency.jpg'
     }
   ];

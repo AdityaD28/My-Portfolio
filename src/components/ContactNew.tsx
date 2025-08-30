@@ -100,6 +100,13 @@ const Contact: React.FC = () => {
 
   const contactInfo = [
     {
+      icon: Phone,
+      label: 'Phone',
+      value: '+91 9902806818',
+      href: 'tel:+919902806818',
+      color: '#22c55e'
+    },
+    {
       icon: Mail,
       label: 'Email',
       value: 'adityadasappanavar@gmail.com',

@@ -4,22 +4,22 @@ import { MapPin, Calendar, Code, Brain, Heart, Coffee, Rocket, Star } from 'luci
 
 const About: React.FC = () => {
   const stats = [
-    { label: 'Years of Learning', value: '3+', icon: Calendar, color: '#6366f1' },
-    { label: 'Projects Built', value: '20+', icon: Code, color: '#22c55e' },
-    { label: 'Technologies', value: '15+', icon: Brain, color: '#f59e0b' },
-    { label: 'Coffee Consumed', value: '∞', icon: Coffee, color: '#8b5cf6' }
+    { label: 'Current Experience', value: '2025+', icon: Calendar, color: '#6366f1' },
+    { label: 'Projects Built', value: '15+', icon: Code, color: '#22c55e' },
+    { label: 'Technologies', value: '10+', icon: Brain, color: '#f59e0b' },
+    { label: 'Team Members Led', value: '3+', icon: Coffee, color: '#8b5cf6' }
   ];
 
   const interests = [
-    { name: 'AI/ML Research', icon: '🧠', description: 'Exploring cutting-edge AI technologies' },
-    { name: 'Open Source', icon: '🌟', description: 'Contributing to developer community' },
-    { name: 'Innovation', icon: '🚀', description: 'Building solutions for tomorrow' },
-    { name: 'Learning', icon: '📚', description: 'Continuous skill development' }
+    { name: 'Full-Stack Development', icon: '💻', description: 'Building end-to-end web applications' },
+    { name: 'System Optimization', icon: '⚡', description: 'Performance and scalability improvements' },
+    { name: 'Team Leadership', icon: '�', description: 'Leading Agile development teams' },
+    { name: 'Cloud Architecture', icon: '☁️', description: 'Cloud-ready application design' }
   ];
 
   const personalityTraits = [
-    'Problem Solver', 'Team Player', 'Innovation Driven', 'Detail Oriented',
-    'Fast Learner', 'Creative Thinker', 'Collaboration Focused', 'Tech Enthusiast'
+    'Tech Lead', 'Full-Stack Developer', 'System Optimizer', 'Agile Practitioner',
+    'Performance Expert', 'Team Builder', 'Solution Architect', 'Cloud Enthusiast'
   ];
 
   return (
@@ -35,8 +35,8 @@ const About: React.FC = () => {
         >
           <h2>About Me</h2>
           <p className="subtitle">
-            Passionate developer crafting innovative solutions at the intersection of 
-            technology and creativity.
+            Full-stack software developer focused on building efficient, user-centric 
+            applications with a strong foundation in software design and system optimization.
           </p>
         </motion.div>
 
@@ -84,9 +84,9 @@ const About: React.FC = () => {
                 lineHeight: '1.7',
                 marginBottom: '24px'
               }}>
-                I'm a final-year Computer Science student with an insatiable passion for technology 
-                and innovation. My journey in the world of programming began with curiosity and has 
-                evolved into a deep commitment to creating meaningful digital experiences.
+                I'm a dedicated full-stack software developer currently serving as a Tech Lead, 
+                focused on building efficient, user-centric applications. My expertise lies in 
+                creating scalable solutions that enhance both usability and performance.
               </p>
 
               <p style={{
@@ -94,9 +94,11 @@ const About: React.FC = () => {
                 lineHeight: '1.7',
                 marginBottom: '24px'
               }}>
-                Specializing in <span style={{ color: '#6366f1', fontWeight: '600' }}>Full-Stack Development</span> and 
-                <span style={{ color: '#22c55e', fontWeight: '600' }}> AI/ML technologies</span>, I love building 
-                solutions that bridge the gap between complex technology and user-friendly experiences.
+                Currently leading educational technology initiatives, I specialize in 
+                <span style={{ color: '#6366f1', fontWeight: '600' }}> React.js and Node.js development</span>, 
+                <span style={{ color: '#22c55e', fontWeight: '600' }}> system optimization</span>, and 
+                <span style={{ color: '#f59e0b', fontWeight: '600' }}> cloud-ready architectures</span>. 
+                I have successfully delivered projects serving 200+ users with measurable performance improvements.
               </p>
 
               {/* Personality Traits */}
@@ -247,8 +249,8 @@ const About: React.FC = () => {
                 borderLeft: '3px solid #6366f1',
                 position: 'relative'
               }}>
-                "Technology is best when it brings people together and solves real problems. 
-                I believe in writing code that not only works but makes a difference in people's lives."
+                "Skilled at delivering reliable, high-performance solutions that enhance usability and scalability. 
+                I believe in creating technology that makes a real difference in people's lives."
               </blockquote>
 
               <div style={{
@@ -263,7 +265,7 @@ const About: React.FC = () => {
               }}>
                 <Rocket size={20} color="#6366f1" />
                 <p style={{ color: '#a5b4fc', fontSize: '0.9rem', margin: 0 }}>
-                  Always ready to take on new challenges and push the boundaries of what's possible!
+                  Leading teams to 80% improvement in sprint completion and 30% better system performance!
                 </p>
               </div>
             </motion.div>

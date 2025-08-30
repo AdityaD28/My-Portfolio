@@ -29,23 +29,15 @@ const Footer: React.FC = () => {
   ];
   
   const services: ServiceItem[] = [
-    { name: 'Full-Stack Web Development' },
-    { name: 'AI/ML Solutions' },
-    { name: 'Python Development' },
-    { name: 'Responsive Web Design' },
-    { name: 'UI/UX Implementation' }
+    { name: 'Full-Stack Software Development' },
+    { name: 'System Architecture & Design' },
+    { name: 'Performance Optimization' },
+    { name: 'Technical Leadership' },
+    { name: 'User-Centric Solutions' }
   ];
 
   return (
-    <footer style={{
-      background: 'linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2d3748 100%)',
-      borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-      padding: '80px 0 40px 0',
-      position: 'relative',
-      zIndex: 10,
-      width: '100%',
-      overflow: 'visible'
-    }}>
+    <footer className="footer-container">
       <div style={{
         maxWidth: '1200px',
         margin: '0 auto',
@@ -89,18 +81,18 @@ const Footer: React.FC = () => {
               <h3 style={{
                 fontSize: '24px',
                 fontWeight: '700',
-                color: '#ffffff',
                 margin: 0
-              }}>Aditya Dasappanavar</h3>
+              }} className="footer-heading">Aditya Dasappanavar</h3>
             </div>
             
-            <p style={{
-              color: '#94a3b8',
+            <p className="footer-text" style={{
               lineHeight: '1.6',
               marginBottom: '24px',
               fontSize: '14px'
             }}>
-              Final-year Computer Science student specializing in AI/ML, full-stack  development. Proven ability to architect and deliver high-impact solutions.
+              Full-stack software developer currently serving as a Tech Lead, 
+              focused on building efficient, user-centric applications with a 
+              strong foundation in software design and system optimization.
             </p>
             
             {/* Social Links */}
@@ -110,18 +102,7 @@ const Footer: React.FC = () => {
                 href="https://github.com/aditya-das-appanavar"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '8px',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#94a3b8',
-                  textDecoration: 'none'
-                }}
+                className="footer-social-link"
               >
                 <Github size={18} />
               </motion.a>
@@ -130,36 +111,14 @@ const Footer: React.FC = () => {
                 href="https://linkedin.com/in/aditya-dasappanavar"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '8px',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#94a3b8',
-                  textDecoration: 'none'
-                }}
+                className="footer-social-link"
               >
                 <Linkedin size={18} />
               </motion.a>
               <motion.a
                 whileHover={{ scale: 1.1, y: -2 }}
                 href="mailto:adityadasappanavar@gmail.com"
-                style={{
-                  width: '40px',
-                  height: '40px',
-                  borderRadius: '8px',
-                  background: 'rgba(255, 255, 255, 0.1)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#94a3b8',
-                  textDecoration: 'none'
-                }}
+                className="footer-social-link"
               >
                 <Mail size={18} />
               </motion.a>
@@ -172,10 +131,9 @@ const Footer: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 style={{
+            <h4 className="footer-heading" style={{
               fontSize: '18px',
               fontWeight: '600',
-              color: '#ffffff',
               marginBottom: '24px'
             }}>Navigation</h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
@@ -183,8 +141,8 @@ const Footer: React.FC = () => {
                 <li key={item.name} style={{ marginBottom: '12px' }}>
                   <a
                     href={item.href}
+                    className="footer-text"
                     style={{
-                      color: '#94a3b8',
                       textDecoration: 'none',
                       fontSize: '14px',
                       display: 'flex',
@@ -225,17 +183,15 @@ const Footer: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 style={{
+            <h4 className="footer-heading" style={{
               fontSize: '18px',
               fontWeight: '600',
-              color: '#ffffff',
               marginBottom: '24px'
             }}>Services</h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
               {services.map((service) => (
-                <li key={service.name} style={{
+                <li key={service.name} className="footer-text" style={{
                   marginBottom: '12px',
-                  color: '#94a3b8',
                   fontSize: '14px',
                   display: 'flex',
                   alignItems: 'center',
@@ -259,17 +215,15 @@ const Footer: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h4 style={{
+            <h4 className="footer-heading" style={{
               fontSize: '18px',
               fontWeight: '600',
-              color: '#ffffff',
               marginBottom: '24px'
             }}>Get In Touch</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                 <MapPin size={16} style={{ color: '#667eea', marginTop: '2px' }} />
-                <p style={{
-                  color: '#94a3b8',
+                <p className="footer-text" style={{
                   fontSize: '14px',
                   margin: 0
                 }}>Bangalore, India</p>
@@ -277,8 +231,7 @@ const Footer: React.FC = () => {
               
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                 <Mail size={16} style={{ color: '#667eea', marginTop: '2px' }} />
-                <a href="mailto:adityadasappanavar@gmail.com" style={{
-                  color: '#94a3b8',
+                <a href="mailto:adityadasappanavar@gmail.com" className="footer-text" style={{
                   textDecoration: 'none',
                   fontSize: '14px'
                 }}>
@@ -288,8 +241,7 @@ const Footer: React.FC = () => {
               
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                 <Phone size={16} style={{ color: '#667eea', marginTop: '2px' }} />
-                <p style={{
-                  color: '#94a3b8',
+                <p className="footer-text" style={{
                   fontSize: '14px',
                   margin: 0
                 }}>+91 9945161604</p>
@@ -297,8 +249,7 @@ const Footer: React.FC = () => {
 
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
                 <Send size={16} style={{ color: '#667eea', marginTop: '2px' }} />
-                <a href="https://linkedin.com/in/aditya-dasappanavar" target="_blank" rel="noopener noreferrer" style={{
-                  color: '#94a3b8',
+                <a href="https://linkedin.com/in/aditya-dasappanavar" target="_blank" rel="noopener noreferrer" className="footer-text" style={{
                   textDecoration: 'none',
                   fontSize: '14px'
                 }}>
@@ -310,11 +261,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Divider */}
-        <div style={{
-          height: '1px',
-          background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)',
-          marginBottom: '32px'
-        }} />
+        <div className="footer-divider" />
 
         {/* Bottom Section */}
         <div style={{
@@ -324,8 +271,7 @@ const Footer: React.FC = () => {
           gap: '24px',
           flexWrap: 'wrap'
         }}>
-          <p style={{
-            color: '#94a3b8',
+          <p className="footer-text" style={{
             fontSize: '14px',
             margin: 0
           }}>
@@ -336,19 +282,7 @@ const Footer: React.FC = () => {
             onClick={scrollToTop}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: '8px',
-              background: 'rgba(255, 255, 255, 0.1)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#94a3b8',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease'
-            }}
+            className="footer-scroll-button"
           >
             <ArrowUp size={18} />
           </motion.button>

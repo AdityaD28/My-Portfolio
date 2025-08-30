@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Dasappanavar - Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+            background: white;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 20px;
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            font-size: 0.95em;
+            color: #555;
+            line-height: 1.4;
+        }
+        
+        .section {
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #667eea;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 5px;
+        }
+        
+        .summary {
+            font-size: 1em;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .skill-category {
+            margin-bottom: 12px;
+        }
+        
+        .skill-category strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .job {
+            margin-bottom: 20px;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        
+        .job-title {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+        
+        .job-period {
+            font-weight: 500;
+            color: #667eea;
+            font-size: 0.95em;
+        }
+        
+        .job-achievements {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .job-achievements li {
+            margin-bottom: 6px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .job-achievements li:before {
+            content: "●";
+            color: #667eea;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .project {
+            margin-bottom: 18px;
+        }
+        
+        .project-title {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .project-achievements {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .project-achievements li {
+            margin-bottom: 4px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.95em;
+        }
+        
+        .project-achievements li:before {
+            content: "●";
+            color: #667eea;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .education-details {
+            flex: 1;
+        }
+        
+        .education-title {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .education-school {
+            color: #555;
+            font-size: 0.95em;
+        }
+        
+        .education-period {
+            color: #667eea;
+            font-weight: 500;
+            font-size: 0.9em;
+        }
+        
+        .certifications-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        
+        .certifications-list li {
+            list-style: none;
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.95em;
+        }
+        
+        .certifications-list li:before {
+            content: "●";
+            color: #667eea;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 0.3in;
+                font-size: 11pt;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .section-title {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Aditya Dasappanavar</h1>
+        <div class="contact-info">
+            +91 9902806818 | adityadasappanavar@gmail.com | LinkedIn | GitHub | Portfolio | Twitter
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Summary</div>
+        <div class="summary">
+            Full-stack software developer focused on building efficient, user-centric applications with a strong foundation in software design and system optimization. Skilled at delivering reliable, high-performance solutions that enhance usability and scalability.
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Technical Skills</div>
+        <div class="skills-grid">
+            <div>
+                <div class="skill-category">
+                    <strong>Languages & Frameworks:</strong> Python, JavaScript, React.js, Node.js, Express.js, HTML5, CSS3
+                </div>
+                <div class="skill-category">
+                    <strong>Tools & Platforms:</strong> Git, GitHub, VS Code, REST APIs, Agile/Scrum
+                </div>
+            </div>
+            <div>
+                <div class="skill-category">
+                    <strong>Databases:</strong> MySQL, PostgreSQL
+                </div>
+                <div class="skill-category">
+                    <strong>Core Competencies:</strong> Web Application Development, API Integration, Cloud-Ready Architectures
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Experience</div>
+        <div class="job">
+            <div class="job-header">
+                <div class="job-title">Project Engineer (Academic Role) | Tech Lead</div>
+                <div class="job-period">Jul 2025 – Present</div>
+            </div>
+            <ul class="job-achievements">
+                <li>Architected and deployed a smart learning platform with 5+ interactive modules, improving access to digital education for 200+ rural students in the pilot phase.</li>
+                <li>Engineered an offline-first PWA with React.js + Node.js + PostgreSQL, integrating WebRTC + Bluetooth/Wi-Fi Direct to reduce internet dependency by 70%, enabling students in low-bandwidth regions to access content seamlessly.</li>
+                <li>Directed a 3-member Agile team, implementing Scrum practices that improved sprint completion rates by 80% and accelerated feature releases by 25%.</li>
+                <li>Optimized backend performance via architectural redesign and rigorous testing, reducing server response times by 30% and lowering production bugs by 40%, leading to smoother deployments.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Projects</div>
+        
+        <div class="project">
+            <div class="project-title">AI-Powered Portfolio Website</div>
+            <ul class="project-achievements">
+                <li>Developed a personal portfolio platform with AI chatbot integration, allowing recruiters to instantly query project insights.</li>
+                <li>Showcased 15+ projects, leading to a 2x increase in recruiter engagement during campus placements and professional networking events.</li>
+                <li>Optimized performance using React.js + Tailwind CSS + Node.js, delivering 40% faster load times and ensuring 100% mobile responsiveness.</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="project-title">E-commerce Website</div>
+            <ul class="project-achievements">
+                <li>Engineered a full-stack e-commerce solution supporting 500+ SKUs, featuring secure checkout, user authentication, and order history.</li>
+                <li>Scaled the system to handle 100+ daily active users without downtime, ensuring smooth shopping experiences.</li>
+                <li>Improved conversion rates by 20% by optimizing page load times (40% faster) and refining checkout workflows.</li>
+            </ul>
+        </div>
+
+        <div class="project">
+            <div class="project-title">Employee Management System</div>
+            <ul class="project-achievements">
+                <li>Designed and deployed an employee management tool to handle 1000+ employee records with payroll automation and task assignments.</li>
+                <li>Automated payroll processes, reducing administrative overhead by 60% and increasing payroll accuracy by 25% through structured SQL queries and data validation.</li>
+                <li>Delivered a role-based access control system to ensure secure operations across departments.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Education</div>
+        <div class="education-item">
+            <div class="education-details">
+                <div class="education-title">Bachelor's Degree in Computer Science and Engineering</div>
+                <div class="education-school">Presidency University, Bangalore</div>
+            </div>
+            <div class="education-period">Nov 2022 - Jul 2026</div>
+        </div>
+        <div class="education-item">
+            <div class="education-details">
+                <div class="education-title">Pre-University | PCMB</div>
+                <div class="education-school">Prarthana PU Science College, Bagalkot</div>
+            </div>
+            <div class="education-period">Jun 2020 - Apr 2022</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Certifications</div>
+        <ul class="certifications-list">
+            <li>Python - GeeksforGeeks</li>
+            <li>JavaScript - HackerRank</li>
+            <li>Web Development - Internshala</li>
+            <li>CSS - HackerRank</li>
+            <li>Generative AI - GeeksforGeeks</li>
+        </ul>
+    </div>
+</body>
+</html>

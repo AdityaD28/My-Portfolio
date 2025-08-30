@@ -10,7 +10,7 @@ interface Skill {
   id: string;
   name: string;
   level: number; // 1-100
-  category: 'core' | 'frontend' | 'backend' | 'ai' | 'database' | 'tools';
+  category: 'core' | 'frontend' | 'backend' | 'database' | 'tools';
   logo: string; // Path to logo image in public folder
   description: string;
   related: string[];
@@ -21,149 +21,89 @@ const SkillConstellation: React.FC = () => {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
   const skills: Skill[] = [
-    // Core Programming
+    // Core Programming Languages & Frameworks
     { 
       id: 'python', 
       name: 'Python', 
-      level: 95, 
+      level: 90, 
       category: 'core', 
       logo: '/logos/python.png',
-      description: 'Advanced programming with data structures, algorithms, and OOP',
-      related: ['django', 'fastapi', 'tensorflow']
+      description: 'Backend development, automation, and system optimization',
+      related: ['django', 'fastapi', 'mysql']
     },
     { 
       id: 'javascript', 
       name: 'JavaScript', 
-      level: 90, 
+      level: 92, 
       category: 'core', 
       logo: '/logos/javascript.png',
-      description: 'ES6+, asynchronous programming, and DOM manipulation',
+      description: 'Modern ES6+, asynchronous programming, and full-stack development',
       related: ['react', 'nodejs']
     },
-
-    // Frontend Development
     { 
       id: 'react', 
       name: 'React.js', 
-      level: 92, 
+      level: 95, 
       category: 'frontend', 
       logo: '/logos/react.png',
-      description: 'Hooks, Context API, performance optimization, and modern patterns',
-      related: ['javascript', 'tailwind', 'css']
+      description: 'Advanced component architecture, hooks, performance optimization',
+      related: ['javascript', 'nodejs', 'html']
     },
     { 
-      id: 'tailwind', 
-      name: 'Tailwind CSS', 
+      id: 'nodejs', 
+      name: 'Node.js', 
       level: 88, 
-      category: 'frontend', 
-      logo: '/logos/tailwind.png',
-      description: 'Utility-first CSS framework for rapid UI development',
-      related: ['react', 'css', 'html']
-    },
-    {
-      id: 'bootstrap',
-      name: 'Bootstrap',
-      level: 80,
-      category: 'frontend',
-      logo: '/logos/bootstrap.png',
-      description: 'Responsive layouts and pre-built components for faster design',
-      related: ['html', 'css', 'javascript']
+      category: 'backend', 
+      logo: '/logos/nodejs.png',
+      description: 'Server-side development, API creation, and microservices',
+      related: ['javascript', 'react', 'express']
     },
     { 
-      id: 'css', 
-      name: 'CSS3', 
+      id: 'express', 
+      name: 'Express.js', 
       level: 85, 
-      category: 'frontend', 
-      logo: '/logos/css3.png',
-      description: 'Advanced animations, grid, flexbox, and responsive design',
-      related: ['html', 'tailwind']
+      category: 'backend', 
+      logo: '/logos/express.png',
+      description: 'RESTful API development and middleware implementation',
+      related: ['nodejs', 'javascript']
     },
     { 
       id: 'html', 
       name: 'HTML5', 
-      level: 90, 
+      level: 93, 
       category: 'frontend', 
       logo: '/logos/html.png',
       description: 'Semantic markup, accessibility, and modern web standards',
-      related: ['css']
-    },
-
-    // Backend Development
-    {
-      id: 'django',
-      name: 'Django',
-      level: 85,
-      category: 'backend',
-      logo: '/logos/django.png',
-      description: 'High-level Python web framework for rapid and secure development',
-      related: ['python', 'fastapi', 'mysql']
-    },
-    {
-      id: 'fastapi',
-      name: 'FastAPI',
-      level: 88,
-      category: 'backend',
-      logo: '/logos/fastapi.png',
-      description: 'Modern, high-performance web framework for building APIs with Python',
-      related: ['python', 'django', 'mongodb']
-    },
-
-    // AI/ML
-    { 
-      id: 'tensorflow', 
-      name: 'TensorFlow', 
-      level: 88, 
-      category: 'ai', 
-      logo: '/logos/tensorflow.png',
-      description: 'Deep learning models, neural networks, and model deployment',
-      related: ['python', 'scikit-learn', 'numpy']
+      related: ['css', 'react']
     },
     { 
-      id: 'scikit-learn', 
-      name: 'Scikit-learn', 
+      id: 'css', 
+      name: 'CSS3', 
       level: 90, 
-      category: 'ai', 
-      logo: '/logos/scikit-learn.png',
-      description: 'Machine learning algorithms and data preprocessing',
-      related: ['python', 'pandas', 'numpy']
-    },
-    { 
-      id: 'pandas', 
-      name: 'Pandas', 
-      level: 92, 
-      category: 'ai', 
-      logo: '/logos/pandas.png',
-      description: 'Data manipulation, analysis, and ETL processes',
-      related: ['python', 'numpy', 'matplotlib']
-    },
-    { 
-      id: 'numpy', 
-      name: 'NumPy', 
-      level: 88, 
-      category: 'ai', 
-      logo: '/logos/numpy.png',
-      description: 'Numerical computing and array operations',
-      related: ['python', 'pandas', 'scikit-learn']
-    },
-    {
-      id: 'matplotlib',
-      name: 'Matplotlib',
-      level: 85,
-      category: 'ai',
-      logo: '/logos/matplotlib.png',
-      description: 'Creating static, animated, and interactive visualizations in Python',
-      related: ['python', 'pandas', 'numpy']
+      category: 'frontend', 
+      logo: '/logos/css3.png',
+      description: 'Advanced styling, animations, grid, flexbox, and responsive design',
+      related: ['html', 'tailwind']
     },
 
-    // Database
-    {
-      id: 'mysql',
-      name: 'MySQL',
-      level: 82,
-      category: 'database',
+    // Databases
+    { 
+      id: 'mysql', 
+      name: 'MySQL', 
+      level: 85, 
+      category: 'database', 
       logo: '/logos/mysql.png',
-      description: 'Relational database management for structured data storage and querying',
-      related: ['django', 'python']
+      description: 'Relational database design, optimization, and complex queries',
+      related: ['postgresql', 'nodejs']
+    },
+    { 
+      id: 'postgresql', 
+      name: 'PostgreSQL', 
+      level: 82, 
+      category: 'database', 
+      logo: '/logos/postgresql.png',
+      description: 'Advanced SQL, performance tuning, and data integrity',
+      related: ['mysql', 'nodejs']
     },
     {
       id: 'mongodb',
@@ -175,33 +115,60 @@ const SkillConstellation: React.FC = () => {
       related: ['fastapi', 'react', 'nodejs']
     },
 
-    // Tools
+    // Tools & Platforms
     { 
       id: 'git', 
-      name: 'GitHub', 
-      level: 90, 
+      name: 'Git', 
+      level: 88, 
       category: 'tools', 
       logo: '/logos/git.png',
-      description: 'Version control, collaboration, and workflow management with Git',
-      related: ['vscode']
+      description: 'Version control, branching strategies, and collaborative development',
+      related: ['github', 'vscode']
     },
-    {
-      id: 'vscode',
-      name: 'VS Code',
-      level: 95,
-      category: 'tools',
+    { 
+      id: 'github', 
+      name: 'GitHub', 
+      level: 85, 
+      category: 'tools', 
+      logo: '/logos/github.png',
+      description: 'Repository management, CI/CD, and project collaboration',
+      related: ['git', 'vscode']
+    },
+    { 
+      id: 'vscode', 
+      name: 'VS Code', 
+      level: 90, 
+      category: 'tools', 
       logo: '/logos/vscode.png',
-      description: 'Advanced code editing, debugging, and integrated terminal usage',
-      related: ['git', 'python', 'react']
+      description: 'Advanced IDE usage, extensions, and development workflows',
+      related: ['git', 'github']
+    },
+    { 
+      id: 'rest-apis', 
+      name: 'REST APIs', 
+      level: 88, 
+      category: 'backend', 
+      logo: '/logos/api.png',
+      description: 'API design, integration, and testing',
+      related: ['nodejs', 'express']
+    },
+    { 
+      id: 'agile-scrum', 
+      name: 'Agile/Scrum', 
+      level: 85, 
+      category: 'tools', 
+      logo: '/logos/agile.png',
+      description: 'Team leadership, sprint planning, and project management',
+      related: ['git', 'github']
     },
     {
-      id: 'google-colab',
-      name: 'Google Colab',
+      id: 'fastapi',
+      name: 'FastAPI',
       level: 88,
-      category: 'tools',
-      logo: '/logos/google-colab.png',
-      description: 'Cloud-based Jupyter notebook environment for AI/ML experimentation',
-      related: ['python', 'tensorflow', 'pandas']
+      category: 'backend',
+      logo: '/logos/fastapi.png',
+      description: 'Modern, high-performance web framework for building APIs with Python',
+      related: ['python', 'django', 'mongodb']
     }
   ];
 
@@ -209,7 +176,6 @@ const SkillConstellation: React.FC = () => {
     core: { name: 'Core Programming', icon: Cpu, color: '#667eea', gradient: 'from-blue-500 to-purple-600' },
     frontend: { name: 'Full-Stack', icon: Globe, color: '#f093fb', gradient: 'from-pink-500 to-rose-500' },
     backend: { name: 'Backend', icon: Server, color: '#38b2ac', gradient: 'from-teal-400 to-cyan-500' },
-    ai: { name: 'AI & ML', icon: Brain, color: '#43e97b', gradient: 'from-green-400 to-emerald-500' },
     database: { name: 'Databases', icon: Database, color: '#f6ad55', gradient: 'from-orange-400 to-yellow-500' },
     tools: { name: 'Tools & Platforms', icon: Wrench, color: '#9f7aea', gradient: 'from-purple-400 to-indigo-500' }
   };
@@ -579,7 +545,7 @@ const SkillConstellation: React.FC = () => {
                   textTransform: 'uppercase',
                   letterSpacing: '0.5px'
                 }}>
-                  {skill.category === 'ai' ? 'AI/ML' : skill.category}
+                  {skill.category}
                 </div>
               </motion.div>
             ))}

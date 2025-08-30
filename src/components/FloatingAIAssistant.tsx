@@ -19,7 +19,7 @@ const FloatingAIAssistant: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hi! I'm Aditya's AI assistant. I can answer questions about his skills, projects, experience, and more. What would you like to know?",
+      text: "Hi! I'm Aditya's AI assistant. I can answer questions about his full-stack development skills, current projects, Tech Lead experience, certifications, and more. What would you like to know?",
       sender: 'ai',
       timestamp: new Date()
     }
@@ -27,159 +27,218 @@ const FloatingAIAssistant: React.FC = () => {
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
 
-  // Knowledge base about Aditya from his resume
+  // Knowledge base about Aditya from his updated resume
   const knowledgeBase = {
     skills: {
-      core: ['Python', 'JavaScript', 'React.js', 'Machine Learning', 'Deep Learning'],
-      ai: ['TensorFlow', 'Keras', 'OpenCV', 'Scikit-learn', 'Computer Vision'],
-      frontend: ['React.js', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind CSS'],
-      backend: ['Node.js', 'API Integration'],
-      tools: ['Git', 'Pandas', 'NumPy']
+      core: ['Python', 'JavaScript', 'React.js', 'Node.js', 'Express.js', 'HTML5', 'CSS3'],
+      databases: ['MySQL', 'PostgreSQL'],
+      tools: ['Git', 'GitHub', 'VS Code', 'REST APIs', 'Agile/Scrum'],
+      competencies: ['Web Application Development', 'API Integration', 'Cloud-Ready Architectures']
     },
     projects: {
-      greenguardian: {
-        name: 'GreenGuardian',
-        description: 'AI-Powered Plant Disease Detection using React.js and TensorFlow.js',
-        tech: ['React.js', 'TensorFlow.js', 'Python', 'Computer Vision'],
-        purpose: 'Help farmers identify plant diseases early through image analysis'
-      },
       aiportfolio: {
         name: 'AI-Powered Portfolio Website',
-        description: 'Interactive portfolio with AI chatbot assistant',
-        tech: ['React.js', 'TypeScript', 'AI/ML', 'Framer Motion'],
-        purpose: 'Showcase skills through an intelligent, interactive website'
+        description: 'Personal portfolio platform with AI chatbot integration, allowing recruiters to instantly query project insights',
+        tech: ['React.js', 'Tailwind CSS', 'Node.js'],
+        achievements: ['Showcased 15+ projects', '2x increase in recruiter engagement', '40% faster load times', '100% mobile responsiveness']
       },
-      handgesture: {
-        name: 'Real-time Hand Gesture Recognition',
-        description: 'Computer vision system for gesture-based control',
-        tech: ['Python', 'OpenCV', 'TensorFlow', 'Deep Learning'],
-        purpose: 'Enable touchless human-computer interaction'
+      ecommerce: {
+        name: 'E-commerce Website',
+        description: 'Full-stack e-commerce solution supporting 500+ SKUs with secure checkout, user authentication, and order history',
+        tech: ['React.js', 'Node.js', 'Express.js', 'Database'],
+        achievements: ['Handles 100+ daily active users', '20% conversion rate improvement', '40% faster page load times']
+      },
+      ems: {
+        name: 'Employee Management System',
+        description: 'Employee management tool handling 1000+ employee records with payroll automation and task assignments',
+        tech: ['SQL', 'Web Technologies'],
+        achievements: ['60% reduction in administrative overhead', '25% increase in payroll accuracy', 'Role-based access control']
+      },
+      smartlearning: {
+        name: 'Smart Learning Platform',
+        description: 'Offline-first PWA with 5+ interactive modules improving access to digital education for 200+ rural students',
+        tech: ['React.js', 'Node.js', 'PostgreSQL', 'WebRTC', 'Bluetooth/Wi-Fi Direct'],
+        achievements: ['70% reduction in internet dependency', 'Seamless offline access', 'Led 3-member Agile team']
       }
     },
     experience: {
-      skillcraft: {
-        title: 'Machine Learning Intern',
-        company: 'SKillCraft Technology',
-        period: 'June 2024 - August 2024',
+      current: {
+        title: 'Project Engineer (Academic Role) | Tech Lead',
+        period: 'Jul 2025 – Present',
         achievements: [
-          'Developed predictive models for house pricing and customer segmentation',
-          'Engineered real-time hand gesture recognition system',
-          'Collaborated on scalable ML solutions'
+          'Architected smart learning platform with 5+ interactive modules for 200+ rural students',
+          'Engineered offline-first PWA reducing internet dependency by 70%',
+          'Led 3-member Agile team with 80% sprint completion improvement',
+          'Optimized backend performance reducing response times by 30%'
         ]
       }
     },
     education: {
       university: 'Presidency University',
-      degree: 'B.E. Computer Science',
-      period: '2022 - 2026',
-      specialization: 'AI/ML & Full-Stack Development'
+      degree: 'Bachelor\'s Degree in Computer Science and Engineering',
+      location: 'Bangalore',
+      period: 'Nov 2022 - Jul 2026'
     },
     contact: {
+      phone: '+91 9902806818',
       email: 'adityadasappanavar@gmail.com',
-      linkedin: 'linkedin.com/in/adityadasappanavar',
-      github: 'github.com/AdityaD28'
+      linkedin: 'LinkedIn',
+      github: 'GitHub',
+      portfolio: 'Portfolio',
+      twitter: 'Twitter'
     },
     certifications: [
-      'Generative AI',
-      'TensorFlow Developer',
-      'Web Development (Internshala)',
-      'Python (GeeksforGeeks)',
-      'CSS & JavaScript (HackerRank)'
+      'Python - GeeksforGeeks',
+      'JavaScript - HackerRank',
+      'Web Development - Internshala',
+      'CSS - HackerRank',
+      'Generative AI - GeeksforGeeks'
     ]
   };
 
+  // Enhanced AI response generation with better natural language processing
   const generateResponse = (userInput: string): ChatResponse => {
     const input = userInput.toLowerCase();
+    
+    // Enhanced keyword matching with synonyms and context
+    const skillKeywords = ['skill', 'technology', 'programming', 'tech', 'expertise', 'proficient', 'languages', 'frameworks'];
+    const projectKeywords = ['project', 'work', 'built', 'developed', 'created', 'portfolio', 'app', 'application', 'system'];
+    const experienceKeywords = ['experience', 'work', 'job', 'role', 'position', 'current', 'career', 'professional'];
+    const educationKeywords = ['education', 'university', 'degree', 'study', 'academic', 'college', 'graduation'];
+    const contactKeywords = ['contact', 'email', 'reach', 'connect', 'phone', 'call', 'message', 'hire'];
+    const certificationKeywords = ['certification', 'certificate', 'qualified', 'certified', 'achievement', 'credential'];
 
-    // Skills-related questions
-    if (input.includes('skill') || input.includes('technology') || input.includes('programming')) {
-      if (input.includes('front') || input.includes('web')) {
+    // Skills-related questions with enhanced matching
+    if (skillKeywords.some(keyword => input.includes(keyword))) {
+      if (input.includes('database') || input.includes('sql') || input.includes('data')) {
         return {
-          response: `Aditya's front-end skills include ${knowledgeBase.skills.frontend.join(', ')}. He specializes in React.js and modern web technologies, creating responsive and interactive user interfaces.`,
-          confidence: 0.9
+          response: `Aditya has strong database expertise with ${knowledgeBase.skills.databases.join(' and ')}. He's skilled in SQL queries, data validation, optimization, and has experience handling 1000+ employee records with complex database operations. His database work includes payroll automation and ensuring data accuracy across large-scale systems.`,
+          confidence: 0.92
         };
       }
-      if (input.includes('ai') || input.includes('ml') || input.includes('machine learning')) {
+      if (input.includes('tool') || input.includes('platform') || input.includes('development')) {
         return {
-          response: `Aditya has strong AI/ML expertise including ${knowledgeBase.skills.ai.join(', ')}. He's experienced in deep learning, computer vision, and building intelligent applications.`,
-          confidence: 0.95
+          response: `Aditya uses modern development tools including ${knowledgeBase.skills.tools.join(', ')}. He's experienced in Agile/Scrum methodologies, having led a 3-member team with 80% improvement in sprint completion rates. His expertise extends to building cloud-ready architectures and API integration.`,
+          confidence: 0.91
+        };
+      }
+      if (input.includes('frontend') || input.includes('front-end') || input.includes('ui') || input.includes('interface')) {
+        return {
+          response: `Aditya specializes in modern frontend development with React.js, HTML5, CSS3, and has achieved 100% mobile responsiveness in his projects. He's optimized applications for 40% faster load times and focuses on user-centric design. His frontend work has led to 2x increase in recruiter engagement.`,
+          confidence: 0.93
+        };
+      }
+      if (input.includes('backend') || input.includes('back-end') || input.includes('server') || input.includes('api')) {
+        return {
+          response: `Aditya's backend expertise includes Node.js, Express.js, REST APIs, and database integration. He's optimized backend performance to reduce server response times by 30% and lower production bugs by 40%. His backend work supports applications handling 100+ daily active users without downtime.`,
+          confidence: 0.93
         };
       }
       return {
-        response: `Aditya's core technical skills include ${knowledgeBase.skills.core.join(', ')}. He combines AI/ML expertise with full-stack development to create intelligent web applications.`,
-        confidence: 0.9
+        response: `Aditya is a full-stack developer with expertise in ${knowledgeBase.skills.core.join(', ')}. His core competencies include ${knowledgeBase.skills.competencies.join(', ')}. He combines technical skills with leadership abilities, having successfully led development teams and delivered scalable solutions.`,
+        confidence: 0.90
       };
     }
 
-    // Project-related questions
-    if (input.includes('project') || input.includes('work') || input.includes('built')) {
-      if (input.includes('greenguardian') || input.includes('plant') || input.includes('disease')) {
-        const project = knowledgeBase.projects.greenguardian;
+    // Project-related questions with enhanced context
+    if (projectKeywords.some(keyword => input.includes(keyword))) {
+      if (input.includes('portfolio') || input.includes('website') || input.includes('ai') || input.includes('chatbot')) {
+        const project = knowledgeBase.projects.aiportfolio;
         return {
-          response: `${project.name} is ${project.description}. Built with ${project.tech.join(', ')}, it helps ${project.purpose}.`,
+          response: `The ${project.name} showcases Aditya's ability to integrate AI technology with web development. ${project.description} The project demonstrates his full-stack capabilities with ${project.tech.join(', ')} and achieved impressive results: ${project.achievements.join(', ')}. This very website you're interacting with is an example of his work!`,
+          confidence: 0.96
+        };
+      }
+      if (input.includes('ecommerce') || input.includes('e-commerce') || input.includes('shopping') || input.includes('store') || input.includes('marketplace')) {
+        const project = knowledgeBase.projects.ecommerce;
+        return {
+          response: `The ${project.name} demonstrates Aditya's expertise in building scalable commercial applications. ${project.description} This project showcases his ability to handle complex business logic, user authentication, and high-traffic scenarios. Key achievements: ${project.achievements.join(', ')}.`,
           confidence: 0.95
         };
       }
-      if (input.includes('gesture') || input.includes('hand') || input.includes('recognition')) {
-        const project = knowledgeBase.projects.handgesture;
+      if (input.includes('employee') || input.includes('management') || input.includes('payroll') || input.includes('hr') || input.includes('enterprise')) {
+        const project = knowledgeBase.projects.ems;
         return {
-          response: `The ${project.name} project is ${project.description}. Using ${project.tech.join(', ')}, it aims to ${project.purpose}.`,
+          response: `The ${project.name} showcases Aditya's ability to build enterprise-level solutions. ${project.description} This project highlights his expertise in database design, automation, and security implementation. Results achieved: ${project.achievements.join(', ')}.`,
           confidence: 0.95
+        };
+      }
+      if (input.includes('learning') || input.includes('education') || input.includes('smart') || input.includes('platform') || input.includes('offline')) {
+        const project = knowledgeBase.projects.smartlearning;
+        return {
+          response: `The ${project.name} represents Aditya's most innovative work, addressing real-world challenges in rural education. ${project.description} Built with cutting-edge technologies like ${project.tech.join(', ')}, this project achieved remarkable results: ${project.achievements.join(', ')}. This project demonstrates his ability to lead teams and create socially impactful technology.`,
+          confidence: 0.97
         };
       }
       return {
-        response: `Aditya has worked on several impressive projects including GreenGuardian (AI plant disease detection), this AI-powered portfolio website, and a real-time hand gesture recognition system. Each project showcases his expertise in combining AI/ML with practical applications.`,
-        confidence: 0.9
+        response: `Aditya has developed several impressive projects that showcase different aspects of his expertise: AI-Powered Portfolio (this website), E-commerce Website, Employee Management System, and Smart Learning Platform. Each project demonstrates his full-stack development skills, problem-solving abilities, and focus on creating user-centric solutions with measurable impact.`,
+        confidence: 0.92
       };
     }
 
-    // Experience questions
-    if (input.includes('experience') || input.includes('work') || input.includes('internship') || input.includes('job')) {
-      const exp = knowledgeBase.experience.skillcraft;
+    // Experience questions with detailed context
+    if (experienceKeywords.some(keyword => input.includes(keyword))) {
+      const exp = knowledgeBase.experience.current;
       return {
-        response: `Aditya worked as a ${exp.title} at ${exp.company} from ${exp.period}. His key achievements include: ${exp.achievements.join(', ')}.`,
-        confidence: 0.9
+        response: `Aditya is currently serving as a ${exp.title} (${exp.period}), where he's making significant impact in educational technology. His role involves both technical leadership and hands-on development. Key achievements include: ${exp.achievements.join(' • ')}. This position showcases his ability to combine technical expertise with leadership skills in delivering socially impactful solutions.`,
+        confidence: 0.94
       };
     }
 
     // Education questions
-    if (input.includes('education') || input.includes('university') || input.includes('degree') || input.includes('study')) {
+    if (educationKeywords.some(keyword => input.includes(keyword))) {
       const edu = knowledgeBase.education;
       return {
-        response: `Aditya is pursuing ${edu.degree} at ${edu.university} (${edu.period}), specializing in ${edu.specialization}.`,
-        confidence: 0.9
+        response: `Aditya is pursuing his ${edu.degree} at ${edu.university}, ${edu.location} (${edu.period}). His academic journey is complemented by practical experience through internships, projects, and his current role as Tech Lead. He combines theoretical knowledge with hands-on application, making him well-prepared for real-world software development challenges.`,
+        confidence: 0.91
       };
     }
 
-    // Contact questions
-    if (input.includes('contact') || input.includes('email') || input.includes('reach') || input.includes('connect')) {
+    // Contact questions with helpful context
+    if (contactKeywords.some(keyword => input.includes(keyword))) {
       const contact = knowledgeBase.contact;
       return {
-        response: `You can reach Aditya at: Email: ${contact.email}, LinkedIn: ${contact.linkedin}, or GitHub: ${contact.github}`,
-        confidence: 0.95
+        response: `Ready to connect with Aditya? Here are his contact details: 📞 Phone: ${contact.phone} | 📧 Email: ${contact.email}. You can also find him on LinkedIn, GitHub, check out his Portfolio, or follow him on Twitter. He's always open to discussing new opportunities, collaborations, or tech conversations!`,
+        confidence: 0.96
       };
     }
 
     // Certification questions
-    if (input.includes('certification') || input.includes('certificate') || input.includes('qualified')) {
+    if (certificationKeywords.some(keyword => input.includes(keyword))) {
       return {
-        response: `Aditya has earned certifications in: ${knowledgeBase.certifications.join(', ')}. These certifications demonstrate his commitment to continuous learning and expertise in his field.`,
-        confidence: 0.9
+        response: `Aditya has earned multiple certifications that validate his expertise: ${knowledgeBase.certifications.join(' • ')}. These certifications span programming languages, web development, and emerging technologies like Generative AI, demonstrating his commitment to staying current with industry trends and continuously expanding his skill set.`,
+        confidence: 0.92
       };
     }
 
-    // Passion/interests
-    if (input.includes('passion') || input.includes('interest') || input.includes('love') || input.includes('enjoy')) {
+    // Summary/overview questions
+    if (input.includes('summary') || input.includes('about') || input.includes('overview') || input.includes('who') || input.includes('tell me about')) {
       return {
-        response: `Aditya is passionate about the intersection of AI/ML and web development. He enjoys building intelligent, user-centric applications that solve real-world problems, particularly in areas like computer vision and predictive analytics.`,
-        confidence: 0.8
+        response: `Aditya Dasappanavar is a skilled Full-stack Software Developer and Tech Lead focused on building efficient, user-centric applications. He combines strong technical expertise in modern web technologies with proven leadership abilities. Currently leading educational technology initiatives, he has successfully delivered projects that serve 200+ users, optimized systems for 40% better performance, and led teams to 80% improvement in productivity. His approach focuses on creating scalable, high-performance solutions that enhance both usability and business impact.`,
+        confidence: 0.96
       };
     }
 
-    // Default responses for unclear questions
+    // Leadership and team questions
+    if (input.includes('lead') || input.includes('team') || input.includes('management') || input.includes('agile') || input.includes('scrum')) {
+      return {
+        response: `Aditya has proven leadership experience as a Tech Lead, successfully directing a 3-member Agile team. He implemented Scrum practices that improved sprint completion rates by 80% and accelerated feature releases by 25%. His leadership style focuses on collaborative development, continuous improvement, and delivering high-quality results on schedule.`,
+        confidence: 0.93
+      };
+    }
+
+    // Performance and optimization questions
+    if (input.includes('performance') || input.includes('optimization') || input.includes('speed') || input.includes('fast')) {
+      return {
+        response: `Performance optimization is one of Aditya's key strengths. He has achieved: 40% faster page load times, 30% reduction in server response times, 40% decrease in production bugs, and systems that handle 100+ daily active users without downtime. His optimization work has directly contributed to 20% improvement in conversion rates and enhanced user experience.`,
+        confidence: 0.94
+      };
+    }
+
+    // Default enhanced response
     return {
-      response: `I'd be happy to help! I can tell you about Aditya's skills (AI/ML, full-stack development), projects (GreenGuardian, hand gesture recognition), experience at SKillCraft Technology, education, or how to contact him. What specific area interests you?`,
-      confidence: 0.7
+      response: `I'd be happy to help you learn more about Aditya! I can provide detailed information about his technical skills (full-stack development, databases, tools), impressive projects (Smart Learning Platform, AI Portfolio, E-commerce, Employee Management), current Tech Lead experience, educational background, certifications, or contact information. I can also discuss his leadership experience, performance optimization achievements, or any specific aspect of his work. What would you like to explore?`,
+      confidence: 0.75
     };
   };
 
@@ -194,12 +253,19 @@ const FloatingAIAssistant: React.FC = () => {
     };
 
     setMessages(prev => [...prev, userMessage]);
+    const currentInput = inputText;
     setInputText('');
     setIsTyping(true);
 
-    // Simulate AI thinking time
+    // Enhanced AI thinking time based on message complexity
+    const wordCount = currentInput.split(' ').length;
+    const baseDelay = 800;
+    const complexityDelay = Math.min(wordCount * 100, 1500);
+    const randomVariation = Math.random() * 500;
+    const totalDelay = baseDelay + complexityDelay + randomVariation;
+
     setTimeout(() => {
-      const aiResponse = generateResponse(inputText);
+      const aiResponse = generateResponse(currentInput);
       const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
         text: aiResponse.response,
@@ -209,7 +275,7 @@ const FloatingAIAssistant: React.FC = () => {
 
       setMessages(prev => [...prev, aiMessage]);
       setIsTyping(false);
-    }, 1000 + Math.random() * 1500); // Random delay between 1-2.5 seconds
+    }, totalDelay);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -220,10 +286,10 @@ const FloatingAIAssistant: React.FC = () => {
   };
 
   const suggestedQuestions = [
-    "What are his key front-end skills?",
-    "Tell me about the GreenGuardian project",
-    "What was his role at SKillCraft Technology?",
-    "What is he passionate about?",
+    "What are his core technical skills?",
+    "Tell me about the Smart Learning Platform project",
+    "What is his current role and experience?",
+    "What certifications does he have?",
     "How can I contact him?"
   ];
 
