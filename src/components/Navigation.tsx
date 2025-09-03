@@ -268,7 +268,7 @@ const Navigation: React.FC = () => {
             <motion.a
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              href="/Aditya-Dasappanavar-Resume.pdf" // Add your resume PDF to public folder
+              href="/Aditya-Dasappanavar-Resume4.pdf" // Add your resume PDF to public folder
               target="_blank"
               rel="noopener noreferrer"
               style={{

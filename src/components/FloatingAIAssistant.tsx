@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
 
@@ -26,6 +26,29 @@ const FloatingAIAssistant: React.FC = () => {
   ]);
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+
+  // Effect to handle body scroll
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    // Cleanup function to restore scroll on component unmount
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isOpen]);
+
+  const messagesEndRef = React.useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  React.useEffect(() => {
+    scrollToBottom();
+  }, [messages, isTyping]);
 
   // Knowledge base about Aditya from his updated resume
   const knowledgeBase = {
@@ -369,7 +392,7 @@ const FloatingAIAssistant: React.FC = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 position: 'relative',
-                overflow: 'visible',
+                overflow: 'hidden',
                 isolation: 'isolate'
               }}
               onClick={(e) => e.stopPropagation()}
@@ -421,8 +444,11 @@ const FloatingAIAssistant: React.FC = () => {
               {/* Messages */}
               <div style={{
                 flex: 1,
+                minHeight: 0,
                 padding: '20px',
                 overflowY: 'auto',
+                overflowX: 'hidden',
+                overscrollBehavior: 'contain',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '16px'
@@ -453,7 +479,7 @@ const FloatingAIAssistant: React.FC = () => {
                     }}>
                       {message.sender === 'ai' ? (
                         <Bot size={16} color="white" />
-                      ) : (
+                       ) : (
                         <User size={16} color="white" />
                       )}
                     </div>
@@ -466,7 +492,10 @@ const FloatingAIAssistant: React.FC = () => {
                       maxWidth: '80%',
                       color: '#fff',
                       fontSize: '14px',
-                      lineHeight: '1.4'
+                      lineHeight: '1.4',
+                      whiteSpace: 'pre-wrap',
+                      wordBreak: 'break-word',
+                      overflowWrap: 'anywhere'
                     }}>
                       {message.text}
                     </div>
@@ -574,6 +603,7 @@ const FloatingAIAssistant: React.FC = () => {
                     </div>
                   </div>
                 )}
+                <div ref={messagesEndRef} />
               </div>
 
               {/* Input */}
