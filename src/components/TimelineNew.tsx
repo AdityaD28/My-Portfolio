@@ -84,6 +84,7 @@ const Timeline: React.FC = () => {
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: index * 0.3 }}
         viewport={{ once: true }}
+        className="timeline-card-container"
         style={{
           display: 'flex',
           justifyContent: isLeft ? 'flex-start' : 'flex-end',
@@ -98,6 +99,7 @@ const Timeline: React.FC = () => {
           transition={{ duration: 0.6, delay: index * 0.3 + 0.4 }}
           viewport={{ once: true }}
           whileHover={{ scale: 1.1 }}
+          className="timeline-node"
           style={{
             position: 'absolute',
             left: '50%',

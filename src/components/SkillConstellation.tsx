@@ -388,6 +388,15 @@ const SkillConstellation: React.FC = () => {
                       />
                     </div>
                     <div>
+                      <span style={{
+                        fontSize: '0.875rem',
+                        color: categories[skill.category].color,
+                        fontWeight: '600',
+                        display: 'block',
+                        marginBottom: '4px'
+                      }}>
+                        {getLevelText(skill.level)}
+                      </span>
                       <h3 style={{
                         margin: 0,
                         fontSize: '1.25rem',
@@ -396,22 +405,31 @@ const SkillConstellation: React.FC = () => {
                       }}>
                         {skill.name}
                       </h3>
-                      <span style={{
-                        fontSize: '0.875rem',
-                        color: categories[skill.category].color,
-                        fontWeight: '600'
-                      }}>
-                        {getLevelText(skill.level)}
-                      </span>
                     </div>
                   </div>
                   
-                  <div style={{
-                    fontSize: '1.5rem',
-                    fontWeight: '700',
-                    color: categories[skill.category].color
-                  }}>
-                    {skill.level}%
+                  <div style={{ textAlign: 'right' }}>
+                    <div style={{
+                      padding: '4px 8px',
+                      background: categories[skill.category].color,
+                      borderRadius: '12px',
+                      fontSize: '0.65rem',
+                      fontWeight: '600',
+                      color: '#fff',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.5px',
+                      display: 'inline-block',
+                      marginBottom: '4px'
+                    }}>
+                      {skill.category}
+                    </div>
+                    <div style={{
+                      fontSize: '1.5rem',
+                      fontWeight: '700',
+                      color: categories[skill.category].color,
+                    }}>
+                      {skill.level}%
+                    </div>
                   </div>
                 </div>
 
@@ -530,23 +548,6 @@ const SkillConstellation: React.FC = () => {
                     borderRadius: 'inherit'
                   }}
                 />
-
-                {/* Category Badge */}
-                <div style={{
-                  position: 'absolute',
-                  top: '16px',
-                  right: '16px',
-                  padding: '4px 8px',
-                  background: categories[skill.category].color,
-                  borderRadius: '12px',
-                  fontSize: '0.65rem',
-                  fontWeight: '600',
-                  color: '#000',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.5px'
-                }}>
-                  {skill.category}
-                </div>
               </motion.div>
             ))}
           </AnimatePresence>
